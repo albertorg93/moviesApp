@@ -26,7 +26,7 @@ app.use("/",movieRouter);
 //     console.log(`Example app listening on port ${port}`)
 // })
 app.use(notFound);
-
+//console.log("hola");
 
 const server = app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
