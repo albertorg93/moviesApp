@@ -50,6 +50,7 @@ const getMovies = async (req,res) => {
       //    res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
       //  }
       }
+      
 
       const myMovies = async (req,res) => {
        
