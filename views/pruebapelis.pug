@@ -9,17 +9,18 @@ html(lang="en")
     body.cuerpo
         section.films__section
             article.films__a1 
-            //-     p.title #{films.Title}
-            //-     img.films__img(src=`${films.Poster}`, alt="movie.img")
-            //- article.films__a2
-            //-     p Year:
-            //-     p.year #{films.Year}
-            //-     p imdbID: 
-            //-     p.imdb #{films.imdbID}
-            //-     p Type: 
-            //-     p.type #{films.Type}
-        //- ul
-        //-     each film in films
-        //-         li= film.Search.[0].Title
-                //- li= meal
-        p= #{Search.[0].Title}        
+                p.title #{films.Title}
+                    img.films__img(src=`${films.Poster}`, alt="movie.img")
+                article.films__a2
+                    p Director: 
+                    p.director #{films.Director}
+                    p Year:
+                    p.year #{films.Year}
+                    p Actors: 
+                    p.actors #{films.Actors}
+                    p Rating: 
+                    p.points #{films.imdbRating}
+                    p Rewards:
+                    p.awards #{films.Awards}
+                    p Description:
+                    p.description #{films.Plot}        
