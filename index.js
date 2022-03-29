@@ -8,6 +8,7 @@ const movieRouter = require('./routes/movies');
 const notFound = require('./middlewares/notFound');
 
 const app = express() // Inicializa el servidor. App es un bjeto que representa el server
+console.log("cambio para prueba");
 const port = process.env.PORT
 // Motor de vistas PUG
 app.set('view engine', 'pug');
