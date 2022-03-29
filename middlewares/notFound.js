@@ -1,5 +1,5 @@
-// function notFound(req,res,next){
-//     res.status(404).json({message:"Ruta inexistente",code:404})
-// }
+function notFound(req,res,next){
+    res.status(404).render('error');
+}
 
-// module.exports = notFound;
+module.exports = notFound;
