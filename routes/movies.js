@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const entries = require('../controllers/entry');
+const movies = require('../controllers/movies');
 //const hasApiKey = require('../middlewares/hasApiKey');
 
 /***********SECCIÓN ENTRIES**********/
@@ -10,7 +10,7 @@ const entries = require('../controllers/entry');
 
 // GET all entries
 // GET http://localhost:3000/api/entries
-router.get('/entries',entries.getEntries);
+
 
 // POST --> Create Entry
 // POST http://localhost:3000/api/entries --> endpoint para mandar objeto entry nueva
@@ -20,5 +20,19 @@ router.get('/entries',entries.getEntries);
 // router.delete('/entries',entries.deleteEntries);
 // UPDATE
 //router.put('/entries',entries.updateEntries);
+
+
+//********APP PELICULAS****** */
+router.get('/',movies.start);
+router.get('/signup',movies.signup);
+router.get('/dashboard',movies.dashboard);
+router.get('/search',movies.searcher);
+router.get('/search/:title?',movies.getMovies);
+router.get('/movies',movies.myMovies);
+
+//*********POST */
+// router.post('/login',movies.inicioSesion);
+router.post('/signup',movies.crearUsuario);
+
 
 module.exports = router;
