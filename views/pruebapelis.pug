@@ -1,25 +1,25 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="/css/styles.css")
-        title Document
-    body.cuerpo
-        section.films__section
-            article.films__a1 
-            //-     p.title #{films.Title}
-            //-     img.films__img(src=`${films.Poster}`, alt="movie.img")
-            //- article.films__a2
-            //-     p Year:
-            //-     p.year #{films.Year}
-            //-     p imdbID: 
-            //-     p.imdb #{films.imdbID}
-            //-     p Type: 
-            //-     p.type #{films.Type}
-        //- ul
-        //-     each film in films
-        //-         li= film.Search.[0].Title
-                //- li= meal
-        p= #{Search.[0].Title}        
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    script(src='./index.js')
+  body
+    
+    div#result
+      article.filmsa1 
+      each value, index in results
+        p.title=`${results[index].Title}`
+        img.filmsimg(src=`${results[index].Poster}`, alt="movie.img")
+      
+      
+        p Year:
+        p.year= `${results[index].Year}`
+        p imdBID: 
+        p.imdbId=`${results[index].imdbID}`
+        p Type : 
+        p.Type=`${results[index].Type}`
+        button.moviedetail=index
+    script(src='/js/main.js')      

@@ -1,13 +1,27 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="./css/styles.css")
-        title Document
-    body 
-        h1 ¡Busca una peli!
-            div.buscar
-                input#buscador(name='buscar' placeholder='Introduce una pelicula...')
-                img(src='./media/search.png' style='width:50px; height:50px')
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body
+    form#form12(action='/Search')
+      label(for='search') Search the site:
+      input#search(type='search' name='search',placeholder="pone pelicula")
+      input#enviarform1(type='submit' value='Enviar' )
+      br
+    //- div#result
+    //-   article.filmsa1 
+    //-     p.title #{results[0].Title}
+    //-     img.filmsimg(src=`${results[0].Poster}`, alt="movie.img")
+    //-   article.filmsa2
+    //-     p Title: 
+    //-     p.director #{results[0].Title}
+    //-     p Year:
+    //-     p.year #{results[0].Year}
+    //-     p imdBID: 
+    //-     p.actors #{results[0].imdbID}
+    //-     p Type : 
+    //-     p.points #{results[0].Type}
+    script(src='/js/main.js')
