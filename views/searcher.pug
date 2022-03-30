@@ -5,17 +5,20 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
-    script(src='./index.js')
+
   body
-    form#form12(action='/api/search' method="GET")
+    form#form12(action='/Search')
+
       label(for='search') Search the site:
       input#search(type='search' name='search',placeholder="pone pelicula")
       input#enviarform1(type='submit' value='Enviar' )
       br
-    div#result
+
+    //- div#result
     //-   article.filmsa1 
     //-     p.title #{results[0].Title}
-    //-     img.filmsimg(src=${results[0].Poster}, alt="movie.img")
+    //-     img.filmsimg(src=`${results[0].Poster}`, alt="movie.img")
+
     //-   article.filmsa2
     //-     p Title: 
     //-     p.director #{results[0].Title}
@@ -25,4 +28,6 @@ html(lang="en")
     //-     p.actors #{results[0].imdbID}
     //-     p Type : 
     //-     p.points #{results[0].Type}
-    //- script(src='/js/main.js')
+
+    script(src='/js/main.js')
+

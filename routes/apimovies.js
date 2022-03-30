@@ -3,6 +3,21 @@ const router = express.Router();
 
 const movies = require('../controllers/apimovies');
 
-router.get('/search',movies.apisearcher);
+
+//Rutas de la Api
+router.post('/search')
+router.get('/search/:title?',movies.getMovies);
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
