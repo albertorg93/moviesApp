@@ -33,23 +33,22 @@ const dashboard = async (req,res) => {
 }
 
 const searcher = async (req,res) => {
-       
+  //const movie = await movies.getMovieByTitleBeg();     
   res.status(200).render('searcher'); // Pinta datos en el pug
 
 }
 
 
 const getMovies = async (req,res) => {
-       if (req.params.title) {     
-         const title = await movies.getMovieByTitle(req.params.title); // Devuelve 1
-        // console.log(title)
-         res.status(200).render('pruebapelis', { films: title }); // para ver pelis aproximadas
-         //res.status(200).render('viewMovie', { films: title }); // Para ver peli por titulo
-        }// else {
-      //    const allProducts = await products.getAllProducts();
-      //    res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
-      //  }
-      }
+  //console.log(req)
+   let results = await movies.getMovieByTitle(req.params.title); // Devuelve 1
+    console.log(movie)
+    return res.status(200).render('pruebapelis.pug', {results}); // Pinta datos en el pug
+   
+ //    const allProducts = await products.getAllProducts();
+ //    res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
+ //  }
+ }
 
       const myMovies = async (req,res) => {
        
