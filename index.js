@@ -4,8 +4,8 @@ const { urlencoded } = require('express');
 const express = require('express'); // Importando módulo NPM (libería)
 
 const movieRouter = require('./routes/movies');
-
 const apimovieRouter = require('./routes/movies');
+const apiMoviesMongo = require('./routes/moviesMongodb');
 
 
 const notFound = require('./middlewares/notFound');
@@ -26,7 +26,7 @@ app.use(express.json()); // Para habilitar recepción de datos JSON en una reque
 
 app.use("/",movieRouter);
 app.use("/api",apimovieRouter);
-
+app.use("/api",apiMoviesMongo);
 
 // app.listen(port, () => {
 //     console.log(`Example app listening on port ${port}`)
