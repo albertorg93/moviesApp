@@ -19,7 +19,7 @@ html(lang="en")
           p.year= `${results[index].Year}`
           p Type : 
           p.Type=`${results[index].Type}`
-          
+          p.imdbId= `${results[index].Runtime}`
           button(id=`detalle${index}`)="detallepelicula"
           button(id=`favoritos${index}`)="favoritos"
     script(src='/js/main.js')   

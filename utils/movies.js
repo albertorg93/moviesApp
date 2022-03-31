@@ -9,10 +9,11 @@ const getMovieByTitle = async (title) => {
       
        let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=8b15a7f2`); //{}
        let titulo = await response.json();
-       let results1 = titulo.Search; //{}
-       let response1 = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}
-       let results2 = await response1.json(); //{}
-       const results = {...results1, ...results2 }
+       let results = titulo.Search; //{}
+      //  let response1 = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}
+      //  let results2 = await response1.json(); //{}
+      //  const results = {...results1, ...results2 }
+       console.log(results);
 
        //resultstitle.push(results)
       //console.log(results)
