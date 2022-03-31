@@ -29,7 +29,7 @@ router.get('/dashboard',movies.dashboard);
 router.get('/search',movies.searcher);
 //router.get('/search/:title?',movies.getMovies);
 router.get('/movies',movies.myMovies);
-router.get('/api/search/:title?',movies.getMovies);
+
 
 //*********POST */
 // router.post('/login',movies.inicioSesion);

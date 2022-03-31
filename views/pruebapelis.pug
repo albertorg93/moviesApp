@@ -6,22 +6,21 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
-    script(src='./index.js')
+    
   body
     
     div#result
       article.filmsa1 
       each value, index in results
-        p.title=`${results[index].Title}`
-        img.filmsimg(src=`${results[index].Poster}`, alt="movie.img")
-      
-      
-        p Year:
-        p.year= `${results[index].Year}`
-        p imdBID: 
-        p.imdbId=`${results[index].imdbID}`
-        p Type : 
-        p.Type=`${results[index].Type}`
-        button.moviedetail=index
-    script(src='/js/main.js')      
-
+        div(class="results", id=`${results[index].Title}`)
+          p.title=`${results[index].Title}`
+          img.filmsimg(src=`${results[index].Poster}`, alt="movie.img")
+          p Year:
+          p.year= `${results[index].Year}`
+          p Type : 
+          p.Type=`${results[index].Type}`
+          p.imdbId= `${results[index].Runtime}`
+          button(id=`detalle${index}`)="detallepelicula"
+          button(id=`favoritos${index}`)="favoritos"
+    script(src='/js/main.js')   
+       

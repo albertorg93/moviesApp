@@ -27,17 +27,45 @@ const searcher = async (req,res) => {
 
 }
 
-    const getMovies = async (req,res) => {
 
-       //console.log(req)
-        let results = await movies.getMovieByTitle(req.params.title); // Devuelve 1
-        console.log(movie)
-        return res.status(200).render('pruebapelis.pug', {results}); // Pinta datos en el pug
+
+const getMovies = async (req,res) => {
+
+  //console.log(req)
+   let results = await movies.getMovieByTitle(req.params.title); // Devuelve 1
+    console.log(movie)
+    res.status(200).render('pruebapelis', {results});; // Pinta datos en el pug
    
         //    const allProducts = await products.getAllProducts();
  //    res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
         //  }
  }
+ const moviedetail = async (req,res) => {
+  let movie = req.params.title
+  console.log(movie)
+  let results1 = await movies.getMovieByTitleBeg(movie); // Devuelve 1
+  console.log(movies)
+  // console.log(title)
+   res.status(200).render('pelidetallada', {results1}); // Pinta datos en el pug
+  // else {
+//    const allProducts = await products.getAllProducts();
+//    res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
+//  }
+}
+// const moviedetail1 = async (req,res) => {
+//   let movie = req.params.title
+//   console.log(movie)
+//   let results1 = await movies.getMovieByTitleBeg(movie); // Devuelve 1
+  
+//   // console.log(title)
+//    res.status(200).render('pruebapelis', {results1});
+//     // Pinta datos en el pug
+// //     else {
+// //      const allProducts = await products.getAllProducts();
+// //      res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
+// //   }
+// }
+ 
 
 
          const myMovies = async (req,res) => {
@@ -111,6 +139,8 @@ const searcher = async (req,res) => {
     createMovie,
     editarMovie,
     editMovie,
-    deleteMovie
+    deleteMovie,
+    moviedetail,
+    //moviedetail1
   }
    module.exports = movie;

@@ -4,7 +4,8 @@ const { urlencoded } = require('express');
 const express = require('express'); // Importando módulo NPM (libería)
 
 const movieRouter = require('./routes/movies');
-const apimovieRouter = require('./routes/movies');
+const apimovieRouter = require('./routes/apimovies');
+
 const apiMoviesMongo = require('./routes/moviesMongodb');
 
 
