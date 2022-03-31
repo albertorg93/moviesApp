@@ -21,8 +21,8 @@ const movies = require('../controllers/movies');
 // UPDATE
 //router.put('/entries',entries.updateEntries);
 
-
-//********APP PELICULAS****** */
+//se debe añadir comprobacion para verificar que es usuario
+//********APP PELICULAS--VISTA USUARIO****** */
 router.get('/',movies.start);
 router.get('/signup',movies.signup);
 router.get('/dashboard',movies.dashboard);
@@ -34,6 +34,16 @@ router.get('/api/search/:title?',movies.getMovies);
 //*********POST */
 // router.post('/login',movies.inicioSesion);
 router.post('/signup',movies.crearUsuario);
+
+
+//********APP PELICULAS--VISTA ADMINISTRADOR****** */
+//se debe añadir funcion autenticacion para comprobar que es administrador
+//router.get('/movies',function verificarAdmin(),movies.adminMovie);
+router.get('/createMovie',movies.crearMovie);
+router.get('/editMovie/:id',movies.editarMovie);
+router.post('/createMovie',movies.createMovie);
+router.put('/editMovie/:id',movies.editMovie);
+router.delete('/removeMovie',movies.deleteMovie);
 
 
 module.exports = router;
