@@ -6,9 +6,13 @@ const express = require('express'); // Importando módulo NPM (libería)
 const movieRouter = require('./routes/movies');
 const apimovieRouter = require('./routes/apimovies');
 
+const apiMoviesMongo = require('./routes/moviesMongodb');
+
+
 const notFound = require('./middlewares/notFound');
 
 const app = express() // Inicializa el servidor. App es un bjeto que representa el server
+console.log("cambio para prueba");
 const port = process.env.PORT
 // Motor de vistas PUG
 app.set('view engine', 'pug');
@@ -23,7 +27,7 @@ app.use(express.json()); // Para habilitar recepción de datos JSON en una reque
 
 app.use("/",movieRouter);
 app.use("/api",apimovieRouter);
-
+app.use("/api",apiMoviesMongo);
 
 // app.listen(port, () => {
 //     console.log(`Example app listening on port ${port}`)
@@ -36,3 +40,6 @@ const server = app.listen(port, () => {
   })
   
   module.exports = server;
+
+
+  //PRUEBA PARA RAMAS DE GITHUB!!

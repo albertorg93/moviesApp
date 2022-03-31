@@ -40,6 +40,7 @@ const searcher = async (req,res) => {
 
 
 const getMovies = async (req,res) => {
+
   //console.log(req)
    let results = await movies.getMovieByTitle(req.params.title); // Devuelve 1
     console.log(movie)
@@ -75,6 +76,7 @@ const getMovies = async (req,res) => {
 // //   }
 // }
  
+
 
       const myMovies = async (req,res) => {
        

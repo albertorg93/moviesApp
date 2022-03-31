@@ -1,5 +1,6 @@
 const movies = require('../utils/movies.js');
 
+
 //const fetch = require('node-fetch')
 
 const getMovies = async (req,res) => {
@@ -46,3 +47,4 @@ const moviedetail = async (req,res) => {
   }
 
   module.exports = movieApi;
+
