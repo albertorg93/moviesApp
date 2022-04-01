@@ -1,6 +1,7 @@
 const movies = require('../utils/movies.js');
 const user = require('../models/movies.js');
 //const fetch = require('node-fetch')
+const creaMov = require('../models/moviesMongodb.js');
 const db = require('../models/movies.js');
 
 const start = async (req,res) => {
@@ -99,12 +100,25 @@ const getMovies = async (req,res) => {
 
       const crearMovie = async (req,res) => {
        
-        res.status(200).render('creaPeli'); // Pinta la pagina para crear peliculas
+        res.status(200).render('creaPeli'); // Pinta la pagina para crear peliculas en modo administrador
       
       }
 
       
       const createMovie = async (req,res) => {
+        const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
+        // Líneas
+        //para guardar 
+        // en una BBDD SQL o MongoDB
+        try{
+        const response = await newProduct.save();
+        
+        res.status(201).json({message:`Película ${response.title} guardada en el sistema con ID: ${response.id}`});
+        } catch(err){
+            res.status(400).json({message:err});
+        }
+
+
        //funcion necesaria para crear una peli mediante POST
      
       
@@ -113,13 +127,22 @@ const getMovies = async (req,res) => {
 
       const editarMovie = async (req,res) => {
        
-        res.status(200).render('editaPeli'); // Pinta la pagina para editar peliculas
+        res.status(200).render('editaPeli'); // Pinta la pagina para editar peliculas en modo administrador
       
       }
 
-      const editMovie = async (req,res) => {
-          //funcion necesaria para editar una peli mediante PUT
-      }
+        //funcion necesaria para editar una peli mediante PUT
+      // const editMovie = async (req,res) => {
+      //     await creaMov.updateOne({ id: xxx }, {
+      //     title: 'King in the North',
+      //     image: "https://i.pravatar2.jpg",
+      //     year: 2005,
+      //     director: "ford coppola",
+      //     genre: "comedy",
+      //     runtime: "115 min"
+      //   });
+        
+      //}
 
       const deleteMovie = async (req,res) => {
         //funcion necesaria para borrar una peli mediante DELETE
@@ -138,7 +161,7 @@ const getMovies = async (req,res) => {
     crearMovie,
     createMovie,
     editarMovie,
-    editMovie,
+    //editMovie,
     deleteMovie,
     moviedetail,
     //moviedetail1

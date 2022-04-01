@@ -40,9 +40,9 @@ router.post('/signup',movies.crearUsuario);
 //se debe añadir funcion autenticacion para comprobar que es administrador
 //router.get('/movies',function verificarAdmin(),movies.adminMovie);
 router.get('/createMovie',movies.crearMovie);
-router.get('/editMovie/:id',movies.editarMovie);
 router.post('/createMovie',movies.createMovie);
-router.put('/editMovie/:id',movies.editMovie);
+router.get('/editMovie/:id',movies.editarMovie);
+//router.put('/editMovie/:id',movies.editMovie);
 router.delete('/removeMovie',movies.deleteMovie);
 
 
