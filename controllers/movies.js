@@ -96,6 +96,14 @@ const getMovies = async (req,res) => {
       
       }
 
+        const createUser = async (req, res) => {
+            try {
+                let datos = await user.createUser(req.body);
+                res.status(201).json(datos);
+            } catch (error) {
+                console.log(`ERROR: ${error.stack}`);
+            }
+        };
 
 
       const crearMovie = async (req,res) => {
@@ -164,6 +172,7 @@ const getMovies = async (req,res) => {
     //editMovie,
     deleteMovie,
     moviedetail,
+    createUser
     //moviedetail1
   }
    module.exports = movie;
