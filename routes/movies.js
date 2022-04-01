@@ -33,7 +33,7 @@ router.get('/movies',movies.myMovies);
 
 //*********POST */
 // router.post('/login',movies.inicioSesion);
-router.post('/signup',movies.crearUsuario);
+router.post('/signup',movies.createUser);
 
 
 module.exports = router;

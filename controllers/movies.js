@@ -98,8 +98,15 @@ const getMovies = async (req,res) => {
         res.status(200).send('todo super correcto'); // Pinta datos en el pug
       
       }
-  
 
+        const createUser = async (req, res) => {
+            try {
+                let datos = await user.createUser(req.body);
+                res.status(201).json(datos);
+            } catch (error) {
+                console.log(`ERROR: ${error.stack}`);
+            }
+        };
 
 
 
@@ -114,6 +121,7 @@ const getMovies = async (req,res) => {
     myMovies,
     crearUsuario,
     moviedetail,
+    createUser
     //moviedetail1
   }
    module.exports = movie;
