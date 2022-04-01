@@ -1,11 +1,16 @@
-const { Pool } = require('pg');
-const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    database: 'postgres',
-    password: 'bootcamp'
-  })
+// const { Pool } = require('pg');
+let pg =  require('pg');
+const elephantUrl = 'postgres://qecjoqju:ckJi_YdEkWDuwQlpWQTDX8uxHFy52DTn@manny.db.elephantsql.com/qecjoqju'
+let client = new pg.Client(elephantUrl);
 
+// const pool = new Pool({
+//     host: process.env.PG_HOST,
+//     user: process.env.USER,
+//     database: 'postgres',
+//     password: process.env.PG_PASSWORD,
+//   })
+
+//=====================
 //   const logIn = async (email,pass) => {
 //     //const {title,content,email,category} = entry;
 //         // console.log(email)
@@ -30,35 +35,30 @@ const pool = new Pool({
 //         }
 //         return result
 //         }
+//
 
+//
+//================
     
 
 
-  const createUser = async (email,pass,pass2) => {
-    //const {title,content,email,category} = entry;
-        console.log(email)
-        console.log(pass)
-        console.log(pass2)
+  const createUser = async (user) => {
         console.log("pues parece que tira")
-        let client,result;
-
-        if(pass == pass2){
+        let result;
+        const {username, password, email} = user
         try{
-            client = await pool.connect(); // Espera a abrir conexion
-            const data = await client.query(`INSERT INTO users(username,password) 
-                                        VALUES ($1,$2)`
-                                        ,[email,pass])
+            await client.connect(); // Espera a abrir conexion
+            const data = await client.query(`INSERT INTO users(username,password,email) 
+                                        VALUES ($1,$2,$3)`
+                                        ,[username,password,email])
             result = data.rowCount
         }catch(err){
             console.log(err);
             throw err;
         }finally{
-            client.release();    
+            client.end();
         }
         return result
-    } else {
-        console.log("es necesario que las passwords sean iguales");
-    }
 }
 
 // DELETE 

@@ -11,6 +11,10 @@ html(lang="en")
             button(type='button' id='search' onclick='gotoLogin()') ir a Login
         form#form2(action='/signup' method='POST')
             h1 Movie App
+            label(for='user') User:
+            br
+            input#user(name='username' placeholder='Introduce tu nombre..')
+            br
             label(for='email') Email:
             br
             input#email(name='email' placeholder='Introduce tu email...')
