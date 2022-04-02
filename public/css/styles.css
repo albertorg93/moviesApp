@@ -20,6 +20,59 @@ body {
     
   }
 
+  #creapeli{
+    background-color: rgb(246, 150, 150);
+  }
+
+  #formcrea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #formcrea input{
+    max-width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .creapeli{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+
+  #resultcreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*Apartado Menu Administrador(crear,editar peliculas)*/
+  #managebody{
+    background-color: rgb(242, 173, 124);
+  }
+
+  .TituloManage{
+    text-align: center;
+  }
+
+  .listMovies1{
+    border: 1px solid black;
+    border-radius: 3px;
+    min-width: 20%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+  }
+
+  filmsimg1
+
+
   .boton{
     display: flex;
     justify-content: end;
@@ -186,11 +239,11 @@ body {
     margin: 2px 10px;
     color: rgb(0, 0, 0);
     font-family: oswald;
-    font-size: 12px;
+    font-size: 15px;
   }
   .description,.awards,.points,.actors,.year,.director {
     margin: 2px 10px;
     color: rgb(0, 0, 0);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
   }

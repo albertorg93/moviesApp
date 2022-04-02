@@ -16,7 +16,7 @@ const objectSchema = {
         }
     },
     year: { 
-        type: Number, 
+        type: String, 
         required: true 
     },
     director: { 

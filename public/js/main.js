@@ -53,3 +53,23 @@ async function generarLibros(title) {
     return results
   }
 */
+
+
+//recepcion de datos para la creacion de pelicula nueva
+// document.getElementById('formcrea').addEventListener("submit", function(e) {
+//     e.preventDefault();
+//     const tituloq = e.target.elements.tituloq.value;
+//     const image = e.target.elements.image.value;
+//     const year = e.target.elements.year.value;
+//     const director = e.target.elements.director.value;
+//     const genre = e.target.elements.genre.value;
+//     const runtime = e.target.elements.runtime.value;
+
+    
+//     console.log(tituloq)
+//     console.log(image)
+//     console.log(year)
+//     console.log(director)
+//     console.log(genre)
+//     console.log(runtime)
+// })

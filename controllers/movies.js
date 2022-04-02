@@ -91,8 +91,12 @@ const getMovies = async (req,res) => {
       }
   
       const adminMovie = async (req,res) => {
-       
-        res.status(200).render('manageMovies'); // Muestra la vista del admin para crear, editar y eliminar peliculas
+        console.log("hola desde el admin")
+        const listMovies = await creaMov.find() 
+        console.log(listMovies)
+
+
+        res.status(200).render('manageMovies', {listMovies}); // Muestra la vista del admin para crear, editar y eliminar peliculas
       
       }
 
@@ -107,17 +111,18 @@ const getMovies = async (req,res) => {
 
 
       const crearMovie = async (req,res) => {
-       
         res.status(200).render('creaPeli'); // Pinta la pagina para crear peliculas en modo administrador
       
       }
 
       
       const createMovie = async (req,res) => {
-        const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
+      //  console.log("hola desde create movie")
+         const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
         // Líneas
         //para guardar 
         // en una BBDD SQL o MongoDB
+      
         try{
         const response = await newProduct.save();
         

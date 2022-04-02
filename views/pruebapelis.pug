@@ -13,13 +13,15 @@ html(lang="en")
       article.filmsa1 
       each value, index in results
         div(class="results", id=`${results[index].Title}`)
+          p Title:
           p.title=`${results[index].Title}`
           img.filmsimg(src=`${results[index].Poster}`, alt="movie.img")
           p Year:
           p.year= `${results[index].Year}`
           p Type : 
           p.Type=`${results[index].Type}`
-          p.imdbId= `${results[index].Runtime}`
+          p imdbId : 
+          p.imdbId= `${results[index].imdbID}`
           button(id=`detalle${index}`)="detallepelicula"
           button(id=`favoritos${index}`)="favoritos"
     script(src='/js/main.js')   
