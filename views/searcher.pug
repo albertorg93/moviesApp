@@ -4,30 +4,16 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="./css/styles.css")
     title Document
 
-  body
+  body#bodysearcher
+    h1.searchh1 APP MOVIES: SEARCH A MOVIE
     form#form12(action='/Search')
-
-      label(for='search') Search the site:
+      label(for='search' id="labelsearch") Search a movie:
       input#search(type='search' name='search',placeholder="pone pelicula")
       input#enviarform1(type='submit' value='Enviar' )
       br
-
-    //- div#result
-    //-   article.filmsa1 
-    //-     p.title #{results[0].Title}
-    //-     img.filmsimg(src=`${results[0].Poster}`, alt="movie.img")
-
-    //-   article.filmsa2
-    //-     p Title: 
-    //-     p.director #{results[0].Title}
-    //-     p Year:
-    //-     p.year #{results[0].Year}
-    //-     p imdBID: 
-    //-     p.actors #{results[0].imdbID}
-    //-     p Type : 
-    //-     p.points #{results[0].Type}
 
     script(src='/js/main.js')
 

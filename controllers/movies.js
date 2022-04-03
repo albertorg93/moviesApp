@@ -32,9 +32,7 @@ const searcher = async (req,res) => {
 
 const getMovies = async (req,res) => {
 
-  //console.log(req)
    let results = await movies.getMovieByTitle(req.params.title); // Devuelve 1
-    console.log(movie)
     res.status(200).render('pruebapelis', {results});; // Pinta datos en el pug
    
         //    const allProducts = await products.getAllProducts();
@@ -42,11 +40,9 @@ const getMovies = async (req,res) => {
         //  }
  }
  const moviedetail = async (req,res) => {
+
   let movie = req.params.title
-  console.log(movie)
   let results1 = await movies.getMovieByTitleBeg(movie); // Devuelve 1
-  console.log(movies)
-  // console.log(title)
    res.status(200).render('pelidetallada', {results1}); // Pinta datos en el pug
   // else {
 //    const allProducts = await products.getAllProducts();
@@ -91,11 +87,8 @@ const getMovies = async (req,res) => {
       }
   
       const adminMovie = async (req,res) => {
-        console.log("hola desde el admin")
+
         const listMovies = await creaMov.find() 
-        console.log(listMovies)
-
-
         res.status(200).render('manageMovies', {listMovies}); // Muestra la vista del admin para crear, editar y eliminar peliculas
       
       }
@@ -139,8 +132,8 @@ const getMovies = async (req,res) => {
 
 
       const editarMovie = async (req,res) => {
-       
-        res.status(200).render('editaPeli'); // Pinta la pagina para editar peliculas en modo administrador
+        const editPeli = await creaMov.find({title: req.params.id})  
+        res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       
       }
 

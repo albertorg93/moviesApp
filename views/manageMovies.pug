@@ -7,23 +7,27 @@ html(lang="en")
         link(rel="stylesheet", href="./css/styles.css")
         title Document
     body#managebody 
-        h1.TituloManage Esta es la vista del administrador para gestionar y ver peliculas
+        h1.TituloManage Admin view for create, edit and delete movies
+        div#createnewMovie
+            button(id="createnewMovie1")="Create a new movie"
         div#resultcreate
             article.filmsa1 
             each value, index in listMovies
                 div(class="listMovies1", id=`${listMovies[index].title}`)
-                    p Title:
-                    p.titlem=`${listMovies[index].title}`
-                    p Image:
+                    p.manageAdmin Title:
+                    p=`${listMovies[index].title}`
+                    p.manageAdmin Image:
                     img.filmsimg1(src=`${listMovies[index].image}`)
-                    p Year:
-                    p.year= `${listMovies[index].year}`
-                    p Director : 
-                    p.directorm=`${listMovies[index].director}`
-                    p Genre : 
-                    p.genre= `${listMovies[index].genre}`
-                    p Runtime : 
-                    p.runtime= `${listMovies[index].runtime}`
+                    p.manageAdmin Year:
+                    p=`${listMovies[index].year}`
+                    p.manageAdmin Director : 
+                    p=`${listMovies[index].director}`
+                    p.manageAdmin Genre : 
+                    p=`${listMovies[index].genre}`
+                    p.manageAdmin Runtime : 
+                    p=`${listMovies[index].runtime}`
+                    button(id=`editmovie${index}`)="Edit movie"
+                    button(id=`delete${listMovies[index].title}`)="Delete movie"
         script(src='/js/main.js')
     //- div(class="results", id=`${listMovies[index].title}`)
     //-         p Title:

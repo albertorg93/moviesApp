@@ -73,3 +73,29 @@ async function generarLibros(title) {
 //     console.log(genre)
 //     console.log(runtime)
 // })
+
+document.getElementById(`createnewMovie1`).addEventListener("click", function() {
+     window.location =`http://localhost:3000/createMovie`
+})
+
+
+// document.getElementById(`editmovie`).addEventListener("click", function() {
+//      console.log(listMovies.length)
+//     console.log("hola desde editar")
+//     // window.location =`http://localhost:3000/createMovie`
+// })
+
+
+
+const editsMovieLength = [...document.getElementsByClassName('listMovies1')].length
+
+for (let i = 0; i < editsMovieLength; i++) {
+
+let titles1 = [...document.getElementsByClassName("listMovies1")].map((elemento) => elemento.id)
+
+document.getElementById(`editmovie${i}`).addEventListener("click",function
+ (event) {
+     console.log("ME CLICKEASTE, RECIBI", titles1[i], "TENGO QUE BUSCAR ESTE DETALLE")
+     
+      window.location =`http://localhost:3000/editMovie/${titles1[i]}`
+})}
