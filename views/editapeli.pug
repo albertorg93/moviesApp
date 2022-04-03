@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/styles.css")
+        title Document
+    body#editbody
+        h1 Esta es la vista para editar pelis
+        each value in editPeli
+                div(class="listMovies2")
+                    p.edit Title:
+                    p=`${editPeli[0].title}`
+                    p.edit Image:
+                    img.filmsimg2(src=`${editPeli[0].image}`)
+                    p.edit Year:
+                    p=`${editPeli[0].year}`
+                    p.edit Director :
+                    p=`${editPeli[0].director}`
+                    p.edit Genre :
+                    p=`${editPeli[0].genre}`
+                    p.edit Runtime :
+                    p=`${editPeli[0].runtime}`
+        script(src='/js/main.js')

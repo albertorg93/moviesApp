@@ -6,11 +6,36 @@ body {
     background-color: rgb(204, 248, 160);
   }
 
-  #form1, #form2{
+
+  /*Pagina de inicio*/
+  #startbody{
+    background-color: rgb(253, 235, 212);
     text-align: center;
-    margin-top: 50px;
-    border: 5px solid black;
-    border-radius: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .botoncrea{
+    min-height: 500px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #form1{
+    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50%;
+  }
+
+  #form1 button{
+    margin-top: 10px;
+    min-width: 25%;
+    min-height: 25%;
   }
 
   #form1 h1, #form2 h1{
@@ -20,6 +45,144 @@ body {
     
   }
 
+  #creapeli{
+    background-color: rgb(246, 150, 150);
+  }
+
+  #formcrea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #formcrea input{
+    max-width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .creapeli{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+
+  #resultcreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+   /*pug pagina de busqueda de pelis(searcher)*/
+   #bodysearcher{
+     background-color: darksalmon;
+   }
+   
+   .searchh1{
+     text-align: center;
+   }
+
+   #labelsearch{
+     font-size: 40px;
+  }
+
+   #form12{
+     margin-top: 50%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   #form12 input{
+     margin-top: 40px;
+   }
+
+  /*Busqueda de peliculas(varios resultados)*/
+  #resultadospelis{
+    background-color: springgreen;
+  }
+  #result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .results{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    max-width: 75%;
+  }
+  .filmsimgres{
+    max-width: 85%;
+  }
+
+
+  /*Apartado Menu Administrador(crear,editar peliculas)*/
+  #managebody{
+    background-color: rgb(242, 173, 124);
+  }
+
+  #createnewMovie{
+    text-align: center;
+  }
+  #createnewMovie1{
+     min-height: 20%;
+     min-width: 100px;
+  }
+
+  p.manageAdmin{
+    text-decoration: underline;
+  }
+
+  .TituloManage{
+    text-align: center;
+  }
+
+  .listMovies1{
+    border: 1px solid black;
+    border-radius: 3px;
+    max-width: 40%;
+    min-height: 20%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+  }
+
+  .filmsimg1{
+    max-width: 50%;
+    max-height: 50%;
+  }
+
+
+  /*PAGINA EDITAR PELICULAS*/
+   #editbody{
+     background-color: rgb(242, 175, 175);
+   }
+
+  .listMovies2{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+  }
+
+.filmsimg2{
+  max-width: 20%;
+  max-height: 20%;
+}
+
+p.edit{
+  text-decoration: underline;
+}
+
+   /*Otras paginas*/
   .boton{
     display: flex;
     justify-content: end;
@@ -183,14 +346,14 @@ body {
     text-align: center;
   }
   p {
-    margin: 2px 10px;
+    margin: 5px 10px;
     color: rgb(0, 0, 0);
     font-family: oswald;
-    font-size: 12px;
+    font-size: 15px;
   }
   .description,.awards,.points,.actors,.year,.director {
     margin: 2px 10px;
     color: rgb(0, 0, 0);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
   }

@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="./css/styles.css")
+        title Document
+    body#managebody 
+        h1.TituloManage Admin view for create, edit and delete movies
+        div#createnewMovie
+            button(id="createnewMovie1")="Create a new movie"
+        div#resultcreate
+            article.filmsa1 
+            each value, index in listMovies
+                div(class="listMovies1", id=`${listMovies[index].title}`)
+                    p.manageAdmin Title:
+                    p=`${listMovies[index].title}`
+                    p.manageAdmin Image:
+                    img.filmsimg1(src=`${listMovies[index].image}`)
+                    p.manageAdmin Year:
+                    p=`${listMovies[index].year}`
+                    p.manageAdmin Director : 
+                    p=`${listMovies[index].director}`
+                    p.manageAdmin Genre : 
+                    p=`${listMovies[index].genre}`
+                    p.manageAdmin Runtime : 
+                    p=`${listMovies[index].runtime}`
+                    button(id=`editmovie${index}`)="Edit movie"
+                    button(id=`delete${listMovies[index].title}`)="Delete movie"
+        script(src='/js/main.js')
+    //- div(class="results", id=`${listMovies[index].title}`)
+    //-         p Title:
+    //-         p.title=`${listMovies[index].title}`
+    //-         img.filmsimg(src=`${listMovies[index].image}`, alt="movie.img")
+    //-         p Year:
+    //-         p.year= `${listMovies[index].year}`
+    //-         p Director : 
+    //-         p.director=`${listMovies[index].director}`
+    //-         p Genre : 
+    //-         p.genre= `${listMovies[index].genre}`
+    //-         button(id=`detalle${index}`)="detallepelicula"
+    //-         button(id=`favoritos${index}`)="favoritos"

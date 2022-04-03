@@ -6,21 +6,12 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="./css/styles.css")
         title Document
-    body#formulario
-        div.boton
-            button(type='button' id='search' onclick='gotoSignUp()') ir a Signup 
-        form#form1(action='/login' method='post')
+    body#startbody
+        div.botoncrea
             h1 Movie App
-            label(for='email') Email:
-            br
-            input#email(name='email' placeholder='Introduce tu email...' value='email')
-            br
-            label(for='pass') Password:
-            br
-            input#pass(type='password' name='pass' placeholder='Introduce   password...' value='passw')
-            br
-            input#enviarForm1(type='submit' value='Log in')
-            br
+            form#form1(action='/login' method='post')
+                button(type='button' id='search' onclick='gotoSignUp()') Sign up
+                button(type='button' id='search' onclick='gotoSignUp()') Log in  
         div.google
             h1 Autenticacion con google
         script(src="./js/main.js") 
