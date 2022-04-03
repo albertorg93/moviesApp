@@ -1,8 +1,24 @@
+require('dotenv').config()
 const movies = require('../utils/movies.js');
 const user = require('../models/movies.js');
+const authen = require('../middlewares/auth');
 //const fetch = require('node-fetch')
 const creaMov = require('../models/moviesMongodb.js');
 const db = require('../models/movies.js');
+const express = require('express'); // Importando módulo NPM (libería)
+const app = express()
+const jwt = require('jsonwebtoken') //importamos Jason Web Token
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
+ 
+ //clave privada del servidor
+ //guardar la clave en la BBDD  
+ key=process.env.KEY
+const config = {  
+	llave : key 
+};
+app.set('llave', config.llave);
+
 
 const start = async (req,res) => {
        
@@ -12,9 +28,45 @@ const start = async (req,res) => {
 
 const signup = async (req,res) => {
        
+
   res.status(200).render('signUp'); // Pinta datos en el pug
 
 }
+
+const login = async (req,res) => {
+       
+
+  res.status(200).render('login'); // Pinta datos en el pug
+
+}
+
+const loginauth = async (req,res) => {
+  console.log(req.body)
+  if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+		const payload = {
+			check:  true
+		};
+		const token = jwt.sign(payload, app.get('llave'), {
+			expiresIn: "30000ms"
+		});
+		//   res.json({
+		//   	mensaje: 'Autenticación correcta',
+		//   	token: token
+		// });
+       res
+       .cookie("acces_token", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .json({mensaje: "autenticacion correcta"})
+
+    } else {
+        res.json({ mensaje: "Usuario o contraseña incorrectos"})
+    }  
+  //res.status(200).render('login'); // Pinta datos en el pug
+
+}
+
 
 const dashboard = async (req,res) => {
        
@@ -23,7 +75,8 @@ const dashboard = async (req,res) => {
 }
 
 const searcher = async (req,res) => {
-  //const movie = await movies.getMovieByTitleBeg();     
+  //const movie = await movies.getMovieByTitleBeg(); 
+   
   res.status(200).render('searcher'); // Pinta datos en el pug
 
 }
@@ -110,7 +163,6 @@ const getMovies = async (req,res) => {
 
       
       const createMovie = async (req,res) => {
-      //  console.log("hola desde create movie")
          const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
         // Líneas
         //para guardar 
@@ -158,6 +210,8 @@ const getMovies = async (req,res) => {
    const movie = {
     start,
     signup,
+    login,
+    loginauth,
     dashboard,
     searcher,
     getMovies,
@@ -174,3 +228,6 @@ const getMovies = async (req,res) => {
     //moviedetail1
   }
    module.exports = movie;
+
+
+  

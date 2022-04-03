@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const movies = require('../controllers/movies');
+const authentication = require('../middlewares/auth');
 //const hasApiKey = require('../middlewares/hasApiKey');
 
 /***********SECCIÓN ENTRIES**********/
@@ -25,8 +26,9 @@ const movies = require('../controllers/movies');
 //********APP PELICULAS--VISTA USUARIO****** */
 router.get('/',movies.start);
 router.get('/signup',movies.signup);
+router.get('/login',movies.login);
 router.get('/dashboard',movies.dashboard);
-router.get('/search',movies.searcher);
+router.get('/search', authentication ,movies.searcher);
 router.get('/search/:title?',movies.getMovies);
 //router.get('/movies',movies.myMovies);
 
@@ -34,7 +36,7 @@ router.get('/search/:title?',movies.getMovies);
 //*********POST */
 // router.post('/login',movies.inicioSesion);
 router.post('/signup',movies.createUser);
-
+router.post('/login',movies.loginauth);
 
 //********APP PELICULAS--VISTA ADMINISTRADOR****** */
 //se debe añadir funcion autenticacion para comprobar que es administrador
