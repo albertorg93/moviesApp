@@ -10,6 +10,7 @@ const app = express()
 const jwt = require('jsonwebtoken') //importamos Jason Web Token
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
+let pg =  require('pg');
  
  //clave privada del servidor
  //guardar la clave en la BBDD  
@@ -21,51 +22,69 @@ app.set('llave', config.llave);
 
 
 const start = async (req,res) => {
-       
+  
       res.status(200).render('formulario'); // Pinta datos en el pug
  
 }
 
 const signup = async (req,res) => {
-       
+ 
 
   res.status(200).render('signUp'); // Pinta datos en el pug
 
 }
 
 const login = async (req,res) => {
-       
+  
+
+ // for(let i=0;i<result.length;i++){
+  //   console.log(result[i].username)
+  //   console.log(result[i].password)
+  // }
+  
 
   res.status(200).render('login'); // Pinta datos en el pug
 
 }
 
 const loginauth = async (req,res) => {
-  console.log(req.body)
-  if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+  let result = await user.getUsers()
+   
+    const { usuario, contrasena } = req.body;
+    //console.log(usuario,contrasena)
+//   console.log(username)
+    const user1 = result.find(u => { return u.username === usuario && u.password === contrasena });
+   console.log(user1)
+ 
+  // if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+
+    if(user1) {
 		const payload = {
 			check:  true
 		};
 		const token = jwt.sign(payload, app.get('llave'), {
 			expiresIn: "30000ms"
 		});
+
+    //esto va comentado******
 		//   res.json({
 		//   	mensaje: 'Autenticación correcta',
 		//   	token: token
 		// });
+    //************** */
        res
-       .cookie("acces_token", token, {
+       .cookie('access_token', token, {
         httpOnly: true,
       })
       .status(200)
       .json({mensaje: "autenticacion correcta"})
-
+      
     } else {
         res.json({ mensaje: "Usuario o contraseña incorrectos"})
     }  
-  //res.status(200).render('login'); // Pinta datos en el pug
 
-}
+
+ }
 
 
 const dashboard = async (req,res) => {
@@ -228,6 +247,3 @@ const getMovies = async (req,res) => {
     //moviedetail1
   }
    module.exports = movie;
-
-
-  
