@@ -1,7 +1,22 @@
 const movies = require('../utils/movies.js');
+const scraperpeli = require('../utils/scraper1.js');
+
 
 
 //const fetch = require('node-fetch')
+const scrapmovies=async(req,res)=>{
+  let movie=req.params.title
+  let resultscraper=await scraperpeli.Scraperbymovie(movie)
+  console.log(resultscraper);
+  res.status(200).render('pelidetallada',{resultscraper})
+}
+
+
+
+
+
+
+
 
 const getMovies = async (req,res) => {
      let movie = req.params.title
@@ -43,7 +58,7 @@ const moviedetail = async (req,res) => {
    const movieApi = {
     getMovies,
     moviedetail,
-    //moviedetail1,
+    scrapmovies
   }
 
   module.exports = movieApi;

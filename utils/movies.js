@@ -1,5 +1,7 @@
 const fetch = require('node-fetch')
 //resultstitle=[]
+require('dotenv').config();
+const apikey=process.env.API_KEY;
 
 
 //const movie = require('../public/js/main.js');
@@ -7,7 +9,7 @@ const getMovieByTitle = async (title) => {
    try {
        //console.log(title)
       
-       let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=8b15a7f2`); //{}
+       let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=${apikey}`); //{}
        let titulo = await response.json();
        let results = titulo.Search; //{}
       //  let response1 = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}
@@ -31,7 +33,7 @@ const getMovieByTitle = async (title) => {
 const getMovieByTitleBeg = async (title) => {
  try {
      
-     let response = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}
+     let response = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=${apikey}`); //{}
      let results1 = await response.json(); //{}
      
     // console.log(title)
