@@ -54,7 +54,7 @@ const signup = async (req,res) => {
               check:  true,
           };
           const token = jwt.sign(payload, app.get('llave'), {
-              expiresIn: "30000ms"
+              expiresIn: "60000ms"
           });
   
       //esto va comentado******
@@ -77,13 +77,23 @@ const signup = async (req,res) => {
  
    }
   
-
+   //funcion para deslogar al usuario. eliminar las cookies y redirige a la pantalla
+   //de inicio
+   const logoutUser = async (req,res) => {
+    
+    res
+    .cookie("access_token=; expires=Thu, 01 Jan 1970 00:00:01 GMT")
+    .cookie("rol=; expires=Thu, 01 Jan 1970 00:00:01 GMT")
+    .status(200).redirect('/') 
+  
+  }
+  
 
 const users = {
  signup,
  login,
  loginauth,
-
+  logoutUser
 }
 
 module.exports = users
