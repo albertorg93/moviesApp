@@ -11,8 +11,8 @@ const jwt = require('jsonwebtoken') //importamos Jason Web Token
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
 let pg =  require('pg');
- 
- //clave privada del servidor
+const Cookies=require('js-cookie')
+ //clave privada del servidor0
  //guardar la clave en la BBDD  
  key=process.env.KEY
 const config = {  
@@ -23,68 +23,71 @@ app.set('llave', config.llave);
 
 const start = async (req,res) => {
   
+
+
       res.status(200).render('formulario'); // Pinta datos en el pug
  
 }
 
-const signup = async (req,res) => {
+
+// const signup = async (req,res) => {
  
 
-  res.status(200).render('signUp'); // Pinta datos en el pug
+//   res.status(200).render('signUp'); // Pinta datos en el pug
 
-}
+// }
 
-const login = async (req,res) => {
+// const login = async (req,res) => {
   
 
- // for(let i=0;i<result.length;i++){
-  //   console.log(result[i].username)
-  //   console.log(result[i].password)
-  // }
+//  // for(let i=0;i<result.length;i++){
+//   //   console.log(result[i].username)
+//   //   console.log(result[i].password)
+//   // }
   
 
-  res.status(200).render('login'); // Pinta datos en el pug
+//   res.status(200).render('login'); // Pinta datos en el pug
 
-}
+// }
 
-const loginauth = async (req,res) => {
-  let result = await user.getUsers()
+// const loginauth = async (req,res) => {
+//   let result = await user.getUsers()
    
-    const { usuario, contrasena } = req.body;
-    //console.log(usuario,contrasena)
-//   console.log(username)
-    const user1 = result.find(u => { return u.username === usuario && u.password === contrasena });
-   console.log(user1)
+//     const { usuario, contrasena } = req.body;
+//     //console.log(usuario,contrasena)
+// //   console.log(username)
+//     const user1 = result.find(u => { return u.username === usuario && u.password === contrasena });
+//    console.log(user1)
  
-  // if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+//   // if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
 
-    if(user1) {
-		const payload = {
-			check:  true
-		};
-		const token = jwt.sign(payload, app.get('llave'), {
-			expiresIn: "30000ms"
-		});
+//     if(user1) {
+// 		const payload = {
+// 			check:  true
+// 		};
+// 		const token = jwt.sign(payload, app.get('llave'), {
+// 			expiresIn: "30000ms"
+// 		});
 
-    //esto va comentado******
-		//   res.json({
-		//   	mensaje: 'Autenticación correcta',
-		//   	token: token
-		// });
-    //************** */
-       res
-       .cookie('access_token', token, {
-        httpOnly: true,
-      })
-      .status(200)
-      .json({mensaje: "autenticacion correcta"})
+//     //esto va comentado******
+// 		//   res.json({
+// 		//   	mensaje: 'Autenticación correcta',
+// 		//   	token: token
+// 		// });
+//     //************** */
+//        res
+//        .cookie('access_token', token, {
+//         httpOnly: true,
+//       })
+//       .status(200)
+//       .json({mensaje: "autenticacion correcta"})
       
-    } else {
-        res.json({ mensaje: "Usuario o contraseña incorrectos"})
-    }  
+//     } else {
+//         res.json({ mensaje: "Usuario o contraseña incorrectos"})
+//     }  
 
 
- }
+//  }
 
 
 const dashboard = async (req,res) => {
@@ -228,9 +231,9 @@ const getMovies = async (req,res) => {
 
    const movie = {
     start,
-    signup,
-    login,
-    loginauth,
+   // signup,
+   // login,
+   // loginauth,
     dashboard,
     searcher,
     getMovies,
