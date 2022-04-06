@@ -36,7 +36,7 @@ router.get('/dashboard',/*authentication ,rolemember,*/movies.dashboard);
 router.get('/search',/* authentication ,rolemember ,*/movies.searcher);
 router.get('/search/:title?',/*authentication ,rolemember,*/movies.getMovies);
 router.get('/logout',users.logoutUser);
-router.get('/movies',movies.myMovies);
+//router.get('/movies',movies.myMovies);
 
 
 //*********POST */
@@ -48,7 +48,7 @@ router.post('/login',users.loginauth);  //loginauth
 
 //********APP PELICULAS--VISTA ADMINISTRADOR****** */
 //se debe añadir funcion autenticacion para comprobar que es administrador
-//router.get('/movies', authentication ,roleadmin,movies.adminMovie);
+router.get('/movies',/* authentication ,roleadmin,*/movies.adminMovie);
 router.get('/createMovie',/*authentication ,roleadmin,*/movies.crearMovie);
 router.post('/createMovie',/*authentication ,roleadmin,*/movies.createMovie);
 router.get('/editMovie/:id',/*authentication ,roleadmin,*/movies.editarMovie);
