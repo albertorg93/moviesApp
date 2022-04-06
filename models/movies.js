@@ -1,26 +1,32 @@
-// const { Pool } = require('pg');
+// // const { Pool } = require('pg');
+// const res = require('express/lib/response');
 // let pg =  require('pg');
 // const elephantUrl = 'postgres://qecjoqju:ckJi_YdEkWDuwQlpWQTDX8uxHFy52DTn@manny.db.elephantsql.com/qecjoqju'
 // let client = new pg.Client(elephantUrl);
-const pg = require('pg')
-const { Pool } = pg;
 
-let localPoolConfig = {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_DATABASE,
-};
-const poolConfig = process.env.ELEPHANT_URL
+// const res = require('express/lib/response');
+// const { connectionString } = require('pg/lib/defaults');
+const pool = require('../utils/postgreSQL')
 
-    ? {
-        connectionString: process.env.ELEPHANT_URL,
-        ssl: { rejectUnauthorized: false },
+const getUsers = async () => {
+   
+    let result;
+    let connection
+    try{
+        
+        connection = await pool.connect(); // Espera a abrir conexion
+        const data = await pool.query(`Select * from users`)
+       
+        result = data.rows
+    }catch(err){
+        console.log(err);
+        throw err;
+    }finally{
+        connection.release();
     }
-    : localPoolConfig;
+    return result
+}
 
-const pool = new Pool(poolConfig);
 
 // const pool = new Pool({
 //     host: process.env.PG_HOST,
@@ -68,7 +74,7 @@ const insertMovieFav = async (moviesFav) => {
     return result
 }
 // DELETE 
-//UPDATE
+// //UPDATE
 
 const movies = {
 
@@ -76,4 +82,4 @@ const movies = {
     insertMovieFav
 }
 
-module.exports = movies;
+module.exports = elephant;
