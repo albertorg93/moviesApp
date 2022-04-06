@@ -11,6 +11,7 @@
   "author": "Alejandro Reyes",
   "license": "MIT",
   "dependencies": {
+    "buffer-equal-constant-time": "^1.0.1",
     "cookie-parser": "^1.4.6",
     "cowsay": "^1.5.0",
     "dotenv": "^16.0.0",
