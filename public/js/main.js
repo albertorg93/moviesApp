@@ -74,9 +74,9 @@ async function generarLibros(title) {
 //     console.log(runtime)
 // })
 
-document.getElementById(`createnewMovie1`).addEventListener("click", function() {
-     window.location =`http://localhost:3000/createMovie`
-})
+// document.getElementById(`createnewMovie1`).addEventListener("click", function() {
+//      window.location =`http://localhost:3000/createMovie`
+// })
 
 
 // document.getElementById(`editmovie`).addEventListener("click", function() {
@@ -99,3 +99,13 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
      
       window.location =`http://localhost:3000/editMovie/${titles1[i]}`
 })}
+
+let buttonfav = document.getElementsByClassName("addFavBtn")
+for (let i = 0; i < buttonfav.length; i++) {
+    let id = buttonfav[i].value
+    buttonfav[i].addEventListener("click", function (event) {
+        // window.location = `http://localhost:/api/movie/${id}`
+
+        console.log(id);
+    })
+}

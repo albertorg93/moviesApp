@@ -16,7 +16,7 @@ const objectSchema = {
         }
     },
     year: { 
-        type: String, 
+        type: Number,
         required: true 
     },
     director: { 
@@ -36,6 +36,6 @@ const objectSchema = {
 // Crear el esquema
 const productSchema = mongoose.Schema(objectSchema);
 // Crear el modelo --> Colección
-const Product = mongoose.model('Movies', productSchema);
+const Movie = mongoose.model('Movies', productSchema);
 
-module.exports = Product;
+module.exports = Movie;

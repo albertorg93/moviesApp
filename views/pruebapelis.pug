@@ -22,7 +22,10 @@ html(lang="en")
           p.Type=`${results[index].Type}`
           p imdbId : 
           p.imdbId= `${results[index].imdbID}`
-          button(id=`detalle${index}`)="detallepelicula"
-          button(id=`favoritos${index}`)="favoritos"
+          button(id=`detalle${index}`)="Detalle"
+          //button(id=`favoritos${index}`)="favoritos"
+          button(class="addFavBtn" value=imdbID) Añadir a favoritos
+          //button(id="add-to-favorites" class="")="Añadir a mis películas"
+    // const currUserId
     script(src='/js/main.js')   
        

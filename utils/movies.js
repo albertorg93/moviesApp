@@ -6,8 +6,8 @@ const fetch = require('node-fetch')
 const getMovieByTitle = async (title) => {
    try {
        //console.log(title)
-      
-       let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=8b15a7f2`); //{}
+       // let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=${process.env.API_KEY}`);
+       let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=8b15a7f2`);
        let titulo = await response.json();
        let results = titulo.Search; //{}
       //  let response1 = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}

@@ -154,6 +154,11 @@ const getMovies = async (req,res) => {
         //funcion necesaria para borrar una peli mediante DELETE
     }
 
+    const addfavourite = (req,res) => {
+        console.log("save title " + req.body.id)
+        usuarios.addMovieToUser({ id_user: 18, id_movie :req.body.id})
+    }
+
 
    const movie = {
     start,
@@ -172,5 +177,6 @@ const getMovies = async (req,res) => {
     moviedetail,
     createUser
     //moviedetail1
+    //addfavourite
   }
    module.exports = movie;

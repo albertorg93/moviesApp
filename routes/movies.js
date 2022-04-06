@@ -28,7 +28,7 @@ router.get('/signup',movies.signup);
 router.get('/dashboard',movies.dashboard);
 router.get('/search',movies.searcher);
 router.get('/search/:title?',movies.getMovies);
-//router.get('/movies',movies.myMovies);
+router.get('/movies',movies.myMovies);
 
 
 //*********POST */
