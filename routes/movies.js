@@ -32,9 +32,10 @@ router.get('/',movies.start);
 // router.get('/login',movies.login);
 router.get('/signup',users.signup);
  router.get('/login',users.login);
-router.get('/dashboard',authentication ,rolemember,movies.dashboard);
-router.get('/search', authentication ,rolemember ,movies.searcher);
-router.get('/search/:title?',authentication ,rolemember,movies.getMovies);
+router.get('/dashboard',/*authentication ,rolemember,*/movies.dashboard);
+router.get('/search',/* authentication ,rolemember ,*/movies.searcher);
+router.get('/search/:title?',/*authentication ,rolemember,*/movies.getMovies);
+router.get('/logout',users.logoutUser);
 //router.get('/movies',movies.myMovies);
 
 
@@ -47,12 +48,12 @@ router.post('/login',users.loginauth);  //loginauth
 
 //********APP PELICULAS--VISTA ADMINISTRADOR****** */
 //se debe añadir funcion autenticacion para comprobar que es administrador
-router.get('/movies', authentication ,roleadmin,movies.adminMovie);
-router.get('/createMovie',authentication ,roleadmin,movies.crearMovie);
-router.post('/createMovie',authentication ,roleadmin,movies.createMovie);
-router.get('/editMovie/:id',authentication ,roleadmin,movies.editarMovie);
+router.get('/movies',/* authentication ,roleadmin,*/movies.adminMovie);
+router.get('/createMovie',/*authentication ,roleadmin,*/movies.crearMovie);
+router.post('/createMovie',/*authentication ,roleadmin,*/movies.createMovie);
+router.get('/editMovie/:id',/*authentication ,roleadmin,*/movies.editarMovie);
 //router.put('/editMovie/:id',movies.editMovie);
-router.delete('/removeMovie',authentication ,roleadmin,movies.deleteMovie);
+router.delete('/removeMovie',/*authentication ,roleadmin,*/movies.deleteMovie);
 
 
 module.exports = router;

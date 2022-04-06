@@ -6,7 +6,7 @@ function gotoSignUp(){
 }
 
 function gotoLogin(){
-    window.location ="http://localhost:3000/"
+    window.location ="http://localhost:3000/login"
 }
 // resultsearch=document.getElementById("result")
 // resultsearch1=document.getElementById("result").value
@@ -99,3 +99,7 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
      
       window.location =`http://localhost:3000/editMovie/${titles1[i]}`
 })}
+
+
+
+// 
