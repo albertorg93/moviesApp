@@ -28,6 +28,7 @@ html(lang="en")
                     p=`${listMovies[index].runtime}`
                     button(id=`editmovie${index}`)="Edit movie"
                     button(id=`delete${listMovies[index].title}`)="Delete movie"
+        include ./footer.pug
         script(src='/js/main.js')
     //- div(class="results", id=`${listMovies[index].title}`)
     //-         p Title:

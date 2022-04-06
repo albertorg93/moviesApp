@@ -3,6 +3,8 @@ const { urlencoded } = require('express');
 // Módulos externos
 const express = require('express'); // Importando módulo NPM (libería)
 
+
+
 const movieRouter = require('./routes/movies');
 const apimovieRouter = require('./routes/apimovies');
 
@@ -12,6 +14,9 @@ const apiMoviesMongo = require('./routes/moviesMongodb');
 const notFound = require('./middlewares/notFound');
 
 const app = express() // Inicializa el servidor. App es un bjeto que representa el server
+
+
+
 const port = process.env.PORT
 // Motor de vistas PUG
 app.set('view engine', 'pug');

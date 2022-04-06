@@ -6,8 +6,8 @@ function gotoSignUp() {
     window.location = "http://localhost:3000/signup"
 }
 
-function gotoLogin() {
-    window.location = "http://localhost:3000/"
+function gotoLogin(){
+    window.location ="http://localhost:3000/login"
 }
 // resultsearch=document.getElementById("result")
 // resultsearch1=document.getElementById("result").value

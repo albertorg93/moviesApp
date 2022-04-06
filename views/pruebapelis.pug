@@ -24,5 +24,7 @@ html(lang="en")
           p.imdbId= `${results[index].imdbID}`
           button(id=`detalle${index}`)="detallepelicula"
           button(id=`addfavorites${index}`) Añadir a favoritos
+          
+    include ./footer.pug 
     script(src='/js/main.js')   
        
