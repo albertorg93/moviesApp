@@ -20,7 +20,7 @@ rutasProtegidas.use((req, res, next) => {
   // // console.log(token)
   let valor = prueba.split(';').map(c=>c.split('=')) 
  // let rol = valor[0][1]
-  let token = valor[0][1]
+  let token = valor[1][1]
   console.log(token)
   //console.log(tok,"hola desde tok")
   //console.log(ro,"hola desde ro")

@@ -121,6 +121,13 @@ body {
      text-align: center;
    }
 
+   #formcrea15{
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
   /*Busqueda de peliculas(varios resultados)*/
   #resultadospelis{
     background-color: springgreen;

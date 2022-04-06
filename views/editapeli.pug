@@ -8,19 +8,21 @@ html(lang="en")
         title Document
     body#editbody
         h1 Esta es la vista para editar pelis
-        each value in editPeli
-                div(class="listMovies2")
-                    p.edit Title:
-                    p=`${editPeli[0].title}`
-                    p.edit Image:
-                    img.filmsimg2(src=`${editPeli[0].image}`)
-                    p.edit Year:
-                    p=`${editPeli[0].year}`
-                    p.edit Director :
-                    p=`${editPeli[0].director}`
-                    p.edit Genre :
-                    p=`${editPeli[0].genre}`
-                    p.edit Runtime :
-                    p=`${editPeli[0].runtime}`
+            each value in editPeli
+                form#formcrea15(action="/editMovie" method="POST")
+                    h3 Introduce los datos de la pelicula a editar
+                    label(for='titulo') Titulo:
+                    input#tituloq(name='title' value=`${editPeli[0].title}`)
+                    label(for='image') Image:
+                    input#image(name='image' value=`${editPeli[0].image}`)
+                    label(for='year') Year:
+                    input#pass(type='year' name='year' value=`${editPeli[0].year}`)
+                    label(for='director') Director:
+                    input#director(name='director' value=`${editPeli[0].director}`)
+                    label(for='genre') Genre:
+                    input#genre(name='genre' value=`${editPeli[0].genre}`)
+                    label(for='runtime') Runtime:
+                    input#runtime(name='runtime' value=`${editPeli[0].runtime}`)
+                    input#enviarCreaPeli(type='submit' value='Edit movie')
         include ./footer.pug 
         script(src='/js/main.js')

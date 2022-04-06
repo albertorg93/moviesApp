@@ -8,4 +8,20 @@ html(lang="en")
         title Document
     body 
         h1 Mis pelis favoritas
-        include ./footer.pug 
+        div#result
+            each value, index in datos
+                div(class="results", id=`${datos[index].Title}`)
+                    p Title:
+                    p.title=`${datos[index].Title}`
+                    img.filmsimgres(src=`${datos[index].Poster}`, alt="movie.img")
+                    p Year:
+                    p.year= `${datos[index].Year}`
+                    p Type : 
+                    p.Type=`${datos[index].Type}`
+                    p imdbId : 
+                    p.imdbId= `${datos[index].imdbID}`
+                    button(id=`detalle${index}`)="detallepelicula"
+                    button(id=`favoritos${index}`)="favoritos"
+                    div(class="resultsimdbID", id=`${datos[index].imdbID}`) 
+    include ./footer.pug 
+    script(src='/js/main.js')   

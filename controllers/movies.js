@@ -137,14 +137,20 @@ const getMovies = async (req,res) => {
 // //      res.status(200).render('products', {"products":allProducts }); // Pinta datos en el pug
 // //   }
 // }
- 
-
 
          const myMovies = async (req,res) => {
+          let nuevo=[]
+        resul = await user.selectFavorites(req);
+        let arr=[]
+         for(let i=0;i<resul.length;i++){
+         arr.push(resul[i].movie_id)
+         }
        
-        res.status(200).render('myMovies'); // Pinta datos en el pug
-      
-      }
+         let datos = await movies.viewFavorites(req,res, arr);
+        // console.log(datos,"estos son los datos")
+          res.render('myMovies.pug', {datos})
+
+         }
       
   
   
@@ -192,24 +198,39 @@ const getMovies = async (req,res) => {
       
         try{
         const response = await newProduct.save();
+       // .json({message:`Película ${response.title} guardada en el sistema con ID: ${response.id}`})
+        res.status(201).redirect('/movies');
+        } catch(err){
+            res.status(400).json({message:err});
+        }
+       //funcion necesaria para crear una peli mediante POST
+      }
+      const editarMovie = async (req,res) => {
+        const editPeli = await creaMov.find({title: req.params.id})  
+        res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
+      }
+
+      const editMoviePut = async (req,res) => {
+        console.log(req.body)
+
+        //updsteOne MongodB({titlr},req.body)
+        //const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
+        // Líneas
+        //para guardar 
+        // en una BBDD SQL o MongoDB
+      
+        try{
+        const response = await newProduct.save();
         
         res.status(201).json({message:`Película ${response.title} guardada en el sistema con ID: ${response.id}`});
         } catch(err){
             res.status(400).json({message:err});
         }
 
-
-       //funcion necesaria para crear una peli mediante POST
-     
+       // res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       
       }
-
-
-      const editarMovie = async (req,res) => {
-        const editPeli = await creaMov.find({title: req.params.id})  
-        res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       
-      }
 
         //funcion necesaria para editar una peli mediante PUT
       // const editMovie = async (req,res) => {
@@ -227,6 +248,17 @@ const getMovies = async (req,res) => {
       const deleteMovie = async (req,res) => {
         //funcion necesaria para borrar una peli mediante DELETE
     }
+
+    const addFavorite = async (req,res) => {
+
+     let added = await movies.addFavoriteMovie(req.params.id); 
+     console.log(added.imdbID,"esto es el IMDBID")
+     let dato = added.imdbID
+     let datos = await user.Insertmovieid(req,res, dato);
+     res.status(201).json({datos});
+      //let result = await user.Insertmovieid()
+
+  }
 
 
    const movie = {
@@ -246,7 +278,9 @@ const getMovies = async (req,res) => {
     //editMovie,
     deleteMovie,
     moviedetail,
-    createUser
+    createUser,
+    editMoviePut,
+    addFavorite
     //moviedetail1
   }
    module.exports = movie;

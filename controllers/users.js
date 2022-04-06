@@ -68,6 +68,7 @@ const signup = async (req,res) => {
           httpOnly: true,
         })
         .cookie('rol',user1.role)
+        .cookie('id',user1.id_user)
         .status(200)
         .json({mensaje: "autenticacion correcta"})
         
@@ -84,6 +85,7 @@ const signup = async (req,res) => {
     res
     .cookie("access_token=; expires=Thu, 01 Jan 1970 00:00:01 GMT")
     .cookie("rol=; expires=Thu, 01 Jan 1970 00:00:01 GMT")
+    .cookie("id=; expires=Thu, 01 Jan 1970 00:00:01 GMT")
     .status(200).redirect('/') 
   
   }

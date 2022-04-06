@@ -28,6 +28,59 @@ const getUsers = async () => {
 }
 
 
+const Insertmovieid = async (req, res,dato) => {
+    let value=req.headers.cookie
+      let valor = value.split(';').map(c=>c.split('=')) 
+      let user1 = valor[2][1]
+      console.log(user1)
+      console.log(dato)
+    // const { number } = req.body.id
+
+     let client, result;
+        try {
+            client = await pool.connect(); // Espera a abrir conexion
+            const inser = await client.query
+                (`INSERT INTO favmovies(user_id,movie_id) VALUES ($1,$2)`
+                    , [user1, dato])
+            console.log(inser)
+            result = { msg: "Pelicula agregada." }
+    } catch (err) {
+        console.log(err);
+        // if (err.code == 23505) {
+        //     result = { msg: "Usuario ya registrado." };
+        // }
+    } finally {
+        client.release();
+    }
+     return result
+}
+
+
+const selectFavorites = async (req, res) => {
+    let value=req.headers.cookie
+      let valor = value.split(';').map(c=>c.split('=')) 
+      let user1 = valor[2][1]
+    // const { number } = req.body.id
+
+     let client, result;
+        try {
+            client = await pool.connect(); // Espera a abrir conexion
+            const resultado = await client.query
+                (`select movie_id from favmovies where user_id=$1`
+                    ,[user1])
+           
+            result = resultado.rows
+    } catch (err) {
+        console.log(err);
+        // if (err.code == 23505) {
+        //     result = { msg: "Usuario ya registrado." };
+        // }
+    } finally {
+        client.release();
+    }
+     return result
+}
+
 // const pool = new Pool({
 //     host: process.env.PG_HOST,
 //     user: process.env.USER,
@@ -101,7 +154,9 @@ const getUsers = async () => {
 
 
 const elephant = {
-  getUsers
+  getUsers,
+  Insertmovieid,
+  selectFavorites
 }
 
 module.exports = elephant;

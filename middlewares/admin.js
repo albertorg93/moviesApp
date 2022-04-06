@@ -1,7 +1,7 @@
 function admin(req,res,next){
   let value=req.headers.cookie
   let valor = value.split(';').map(c=>c.split('=')) 
-  let rol = valor[1][1]
+  let rol = valor[0][1]
   if(rol=="admin"){
     next()
   } else {

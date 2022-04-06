@@ -73,10 +73,12 @@ async function generarLibros(title) {
 //     console.log(genre)
 //     console.log(runtime)
 // })
-
-document.getElementById(`createnewMovie1`).addEventListener("click", function() {
-     window.location =`http://localhost:3000/createMovie`
+let doc = document.getElementById('createnewMovie')
+if(doc){
+document.getElementById('createnewMovie1').addEventListener("click", function() {
+     window.location ='http://localhost:3000/createMovie'
 })
+}
 
 
 // document.getElementById(`editmovie`).addEventListener("click", function() {
@@ -103,3 +105,25 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
 
 
 // 
+const resultsLength1 = [...document.getElementsByClassName('results')].length
+console.log(resultsLength1)
+// Itero entre los elementos Resultado que hay, para agregarle un eventListener a cada boton, dentro del mismo result. 
+//(Aprovecho el indice del for loop para saber cual es el titulo que tengo que elegir)
+
+for (let i = 0; i < resultsLength1; i++) {
+    //Convierto a array TODOS los titulos del DOM o 'LO QUE VEO EN EL NAVEGADOR = DOM'
+let title2 = [...document.getElementsByClassName("resultsimdbID")].map((elemento) => elemento.id)
+
+//let botondiv = document.getElementById(`detalle${i}`);
+//botondiv.value = results[i].Title
+
+
+
+document.getElementById(`favoritos${[i]}`).addEventListener("click",function
+ (event) {
+     // COMO CLICKEO EL BOTON DEL MISMO INDICE, SE QUE EL TITULO DE MI ARRAY ES EL QUE TIENE EL MISMO INDICE YA QUE: "Cantidad Botones = Cantidad Titulos" 
+     // Ejemplo: Como hay 20 results, tengo 20 titulos y veinte botones. Por eso el Titulo Uno coincide con el Boton 1 y gracias a eso puedo usar el INDICE del for.
+     console.log("ME CLICKEASTE, RECIBI", title2[i], "TENGO QUE BUSCAR ESTE DETALLE")
+     
+     window.location =`http://localhost:3000/favorites/${title2[i]}`
+})}

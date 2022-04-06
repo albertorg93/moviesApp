@@ -17,7 +17,7 @@ const getMovieByTitle = async (title) => {
        //resultstitle.push(results)
       //console.log(results)
       // res.render('movie.pug', {films: title})
-
+       console.log(results)
        return results;
      }
       catch (error) {
@@ -43,9 +43,53 @@ const getMovieByTitleBeg = async (title) => {
    }
 }
 
+
+const addFavoriteMovie = async (id) => {
+  try {
+      
+      let response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=8b15a7f2`); //{}
+      let results2 = await response.json(); //{}
+      
+     // console.log(title)
+     // res.render('movie.pug', {films: title})
+      return results2;
+    }
+     catch (error) {
+      console.log(`ERROR: ${error.stack}`);
+      return [];
+    }
+ }
+
+ const viewFavorites = async (req,res,arr) => {
+    
+    console.log(arr,"hola desde viewFavorites en utils")
+  try {
+    let arr2 =[]
+      for(let i=0;i<arr.length;i++){
+        // console.log(arr[i])
+      let response = await fetch(`https://www.omdbapi.com/?i=${arr[i]}&apikey=8b15a7f2`); //{}
+      let results2 = await response.json(); //{}
+        arr2.push(results2)
+      }
+     // console.log(arr2)
+
+
+     // res.render('myMovies.pug', {films: title})
+      return arr2;
+    }
+     catch (error) {
+      console.log(`ERROR: ${error.stack}`);
+      return [];
+    }
+ }
+
+
+
   const movies = {
    getMovieByTitle,
-   getMovieByTitleBeg
+   getMovieByTitleBeg,
+   addFavoriteMovie,
+   viewFavorites
 
  }
   module.exports = movies
