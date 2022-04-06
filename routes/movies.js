@@ -35,7 +35,7 @@ router.get('/search/:title?',movies.getMovies);
 // router.post('/login',movies.inicioSesion);
 router.post('/signup',movies.createUser);
 
-
+// router.post('/addfavourite',movies.Insertmovieid);
 //********APP PELICULAS--VISTA ADMINISTRADOR****** */
 //se debe añadir funcion autenticacion para comprobar que es administrador
 router.get('/movies',movies.adminMovie);

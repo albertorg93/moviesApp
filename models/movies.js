@@ -1,5 +1,5 @@
 // const { Pool } = require('pg');
-let pg =  require('pg');
+let pg = require('pg');
 const elephantUrl = 'postgres://qecjoqju:ckJi_YdEkWDuwQlpWQTDX8uxHFy52DTn@manny.db.elephantsql.com/qecjoqju'
 let client = new pg.Client(elephantUrl);
 
@@ -9,7 +9,30 @@ let client = new pg.Client(elephantUrl);
 //     database: 'postgres',
 //     password: process.env.PG_PASSWORD,
 //   })
+// const Insertmovieid = async (req, res) => {
+//     // console.log("me llego la pelicula" + req.body.id)
+//     const { number } = req.body.id
+//     let client, result;
+//     try {
+//         client = await pool.connect(); // Espera a abrir conexion
 
+
+//         const inser = await client.query
+//             (`INSERT INTO favourites(id_user,id_movie) VALUES ($1,$2)`
+//                 , [18, id_movie])
+//         result = { msg: "Pelicula agregada." }
+
+//     } catch (err) {
+
+//         console.log(err);
+//         if (err.code == 23505) {
+//             result = { msg: "Usuario ya registrado." };
+//         }
+//     } finally {
+//         client.release();
+//     }
+//     return result
+// }
 //=====================
 //   const logIn = async (email,pass) => {
 //     //const {title,content,email,category} = entry;
@@ -19,7 +42,7 @@ let client = new pg.Client(elephantUrl);
 //         // console.log("pues parece que tira")
 //         let client,result;
 //         console.log(pass, +"es una prueba")
-      
+
 //         try{
 //             client = await pool.connect(); // Espera a abrir conexion
 //             const data = await client.query(`select email,password from users 
@@ -39,38 +62,69 @@ let client = new pg.Client(elephantUrl);
 
 //
 //================
-    
 
 
-  const createUser = async (user) => {
-        console.log("pues parece que tira")
-        let result;
-        const {username, password, email} = user
-        try{
-            await client.connect(); // Espera a abrir conexion
-            const data = await client.query(`INSERT INTO users(username,password,email) 
+
+const createUser = async (user) => {
+    console.log("pues parece que tira")
+    let result;
+    const { username, password, email } = user
+    try {
+        await client.connect(); // Espera a abrir conexion
+        const data = await client.query(`INSERT INTO users(username,password,email) 
                                         VALUES ($1,$2,$3)`
-                                        ,[username,password,email])
-            result = data.rowCount
-        }catch(err){
-            console.log(err);
-            throw err;
-        }finally{
-            client.end();
-        }
-        return result
+            , [username, password, email])
+        result = data.rowCount
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.end();
+    }
+    return result
 }
+
+
+
+
+//   const addMovieToUser = async (info) => {
+
+//     const {id_movie } = info;
+//     let client, result;
+//     try {
+//         client = await pool.connect(); // Espera a abrir conexion
+
+
+//             const inser = await client.query
+//                 (`INSERT INTO favourites(id_user,id_movie) VALUES ($1,$2)`
+//                     , [18, id_movie])
+//             result = { msg: "Pelicula agregada." }
+
+//     } catch (err) {
+
+//         console.log(err);
+//         if (err.code == 23505) {
+//             result = { msg: "Usuario ya registrado." };
+//         }
+//     } finally {
+//         client.release();
+//     }
+//     return result
+
+// }
 
 // DELETE 
 //UPDATE
 
 const movies = {
-   // getEntriesByEmail,
-   // getAllEntries,
-  // logIn,
+    // getEntriesByEmail,
+    // getAllEntries,
+    // logIn,
     createUser,
+    
     //deleteEntry
     //updateEntry
+
 }
 
 module.exports = movies;
