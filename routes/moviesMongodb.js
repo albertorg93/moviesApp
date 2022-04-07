@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const products = require('../controllers/moviesMongodb');
+const movies = require('../controllers/moviesMongodb');
 
 
 
@@ -12,7 +12,7 @@ const products = require('../controllers/moviesMongodb');
 
 // /products/3
 // /products
-router.get('/products/:id?',products.getProduct);
-router.post('/products', products.createProduct);
+// router.get('/products/:id?',products.getMovie);
+router.post('/products', movies.createMovie);
 
 module.exports = router;

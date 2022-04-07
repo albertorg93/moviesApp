@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
+    title Detalle de película
     
   body
     
@@ -16,7 +16,7 @@ html(lang="en")
           img.filmsimg(src=`${results1.Poster}`, alt="movie.img")
           p Year:
           p.year #{results1.Year}
-          p Plot: 
+          p Plot:
           p.imdbId #{results1.Plot}
           p Director : 
           p.Type #{results1.Director}
@@ -28,6 +28,6 @@ html(lang="en")
           p.year #{results1.Actors}
           p Rating : 
           p.Type #{results1.imdbRating}
-          button(id=`favoritos`)="favoritos"
+          button(id=`favoritos` class=`favorite`)="favoritos"
     include ./footer.pug 
     script(src='/js/main.js')   
