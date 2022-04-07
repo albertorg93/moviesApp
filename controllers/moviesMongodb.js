@@ -1,37 +1,41 @@
 const paraNada = require('../utils/dbMongo')
 
-const Product = require("../models/moviesMongodb")
+const Movie = require("../models/moviesMongodb")
 
 
-const getProduct = async (req,res) => {
-    if (req.params.id) {
-        const product = await Product.find({id:req.params.id}); // Devuelve 1
-        res.status(200).json(product); // Pinta datos en el pug
-    } else {
-        const allProducts = await Product({});
-        res.status(200).json(allProducts); // Pinta datos en el pug
+// const getMovies = async (req,res) => {
+//     if (req.params.id) {
+//         const movie = await Movie.find({id:req.params.id}); // Devuelve 1
+//         res.status(200).json(movie); // Pinta datos en el pug
+//     } else {
+//         const allMovies = await Movie({});
+//         res.status(200).json(allMovies); // Pinta datos en el pug
+//     }
+// }
+
+const createMovie = async (req, res) => {
+    try {
+        const peli = new Movie(req.body);
+        const result = await peli.save();
+        console.log("Movie created");
+        console.log(result);
+        res.status(201).json(result);
+        // res.status(201).json({message: `Película ${answer.title} guardada en el sistema con ID: ${answer.id}`});
+    } catch (err) {
+        res.status(400).json({ error: err });
     }
-}
-
-const createProduct = async (req,res) => {
-    console.log(req.body); // Objeto recibido de producto nuevo
-    const newProduct = req.body; // {} nuevo producto a guardar
-    // Líneas
-    //para guardar 
-    // en una BBDD SQL o MongoDB
-    const response = await Product.save(newProduct)
+};
  
 
-    res.status(201).json({message: `Producto ${answer.title} guardado en el sistema con ID: ${answer.id}`});
-}
 
-//const editProduct = ...
-//const deleteProduct = ...
 
-const product = {
-    getProduct,
-    createProduct,
-    //editProduct,
-    //deleteProduct
+//const editMovie = ...
+//const deleteMovie = ...
+
+const movie = {
+    // getMovies,
+    createMovie,
+    //editMovie,
+    //deleteMovie
 }
-module.exports = product;
+module.exports = movie;

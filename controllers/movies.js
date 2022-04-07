@@ -288,5 +288,6 @@ const getMovies = async (req,res) => {
     editMoviePut,
     addFavorite
     //moviedetail1
+    //addfavourite
   }
    module.exports = movie;
