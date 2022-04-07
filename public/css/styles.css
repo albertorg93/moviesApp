@@ -15,6 +15,8 @@ body {
     max-width: 400px;
     margin: 0 auto;
 }
+/*================================================================================*/
+/*Home*/
 
 
 /*================================================================================*/
@@ -90,14 +92,17 @@ button[type=button]{
 /*Login*/
 
 .botoncrea{
-  min-height: 500px;
-  border: 1px solid red;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #F7D73A;
 }
+h1.login{
+  color: #F7D73A;
 
+}
 form#formlogin{
   margin-top: 30%;
   display: flex;
@@ -119,20 +124,19 @@ div.google{
 /*================================================================================*/
   /*Pagina de inicio*/
   #startbody{
-    background-color: rgb(253, 235, 212);
+    background-color: #2D2D2D;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 
-
-  #form1{
-    border: 1px solid yellow;
+  form#form1{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50%;
+
   }
 
   #form1 button{
@@ -141,14 +145,16 @@ div.google{
     min-height: 25%;
   }
 
-  #form1 h1, #form2 h1{
-    color: black;
-    font-weight: bold;
-    text-decoration: underline;
+  /*#form1 h1, #form2 h1{*/
+  /*  color: black;*/
+  /*  font-weight: bold;*/
+  /*  text-decoration: underline;*/
 
-  }
+  /*}*/
+/*================================================================================*/
+/*creapeli  createMovie*/
 
-  #creapeli{
+  body#creapeli{
     background-color: #2D2D2D;
   }
 
@@ -156,6 +162,8 @@ div.google{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #F7D73A;
+
   }
 
   #formcrea input{
@@ -380,9 +388,7 @@ p.edit{
 
 
 
-   #search{
-     background-color: #424545;
-   }
+
    article.filmsa1{
      background-color: #F7D73A;
    }
