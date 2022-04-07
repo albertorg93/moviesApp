@@ -31,12 +31,12 @@ router.get('/',movies.start);
 // router.get('/signup',movies.signup);
 // router.get('/login',movies.login);
 router.get('/signup',users.signup);
- router.get('/login',users.login);
+router.get('/login',users.login);
 router.get('/dashboard',/*authentication ,rolemember,*/movies.dashboard);
 router.get('/search',/* authentication ,rolemember ,*/movies.searcher);
 router.get('/search/:title?',/*authentication ,rolemember,*/movies.getMovies);
 router.get('/logout',users.logoutUser);
-//router.get('/movies',movies.myMovies);
+router.get('/movies',movies.myMovies);
 
 
 //*********POST */

@@ -7,10 +7,11 @@ html(lang="en")
     link(rel="stylesheet", href="./css/styles.css")
     title Document
   body#bodysearcher
-    h1.searchh1 APP MOVIES: SEARCH A MOVIE
+    include ./header
+    h1.searchh1 APP MOVIES:
     form#form12(action='/Search')
-        label(for='search' id="labelsearch") Search a movie:
-        input#search(type='search' name='search',placeholder="pone pelicula")
+        label(for='search' id="labelsearch") Buscar:
+        input#search(type='search' name='search',placeholder="Título pelicula")
         input#enviarform1(type='submit' value='Enviar' )
         br
     include ./footer.pug 

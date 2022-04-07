@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon index.js",
-    "otraTarea": "echo \"Otra tarea\" && exit 1"
+    "otraTarea": "echo \"Otra tarea\" && exit 1",
+    "generate-docs": "jsdoc -c ./jsdoc.json"
   },
   "author": "Alejandro Reyes",
   "license": "MIT",
@@ -24,7 +25,9 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "cypress": "^9.5.3",
     "jest": "^27.5.1",
+    "jsdoc": "^3.6.10",
     "supertest": "^6.2.2"
   }
 }

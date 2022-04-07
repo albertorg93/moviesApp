@@ -76,7 +76,7 @@ const insertMovieFav = async (moviesFav) => {
 // DELETE 
 // //UPDATE
 
-const movies = {
+const elephant = {
 
     createUser,
     insertMovieFav
