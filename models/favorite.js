@@ -7,7 +7,7 @@ let client = new pg.Client(elephantUrl);
 
 
 const createUser = async (user) => {
-    console.log("pues parece que tira")
+   
     let result;
     const {moviesfav_id, username, movie_id} = user
     try{

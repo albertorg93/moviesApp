@@ -73,10 +73,14 @@ async function generarLibros(title) {
 //     console.log(genre)
 //     console.log(runtime)
 // })
+let doc = document.getElementById('createnewMovie')
+if(doc){
+document.getElementById('createnewMovie1').addEventListener("click", function() {
+     window.location ='http://localhost:3000/createMovie'
+})
+}
 
-// document.getElementById(`createnewMovie1`).addEventListener("click", function() {
-//      window.location =`http://localhost:3000/createMovie`
-// })
+
 
 
 // document.getElementById(`editmovie`).addEventListener("click", function() {
@@ -84,8 +88,6 @@ async function generarLibros(title) {
 //     console.log("hola desde editar")
 //     // window.location =`http://localhost:3000/createMovie`
 // })
-
-
 
 const editsMovieLength = [...document.getElementsByClassName('listMovies1')].length
 
@@ -100,12 +102,61 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
       window.location =`http://localhost:3000/editMovie/${titles1[i]}`
 })}
 
-let buttonfav = document.getElementsByClassName("addFavBtn")
-for (let i = 0; i < buttonfav.length; i++) {
-    let id = buttonfav[i].value
-    buttonfav[i].addEventListener("click", function (event) {
-        // window.location = `http://localhost:/api/movie/${id}`
 
-        console.log(id);
-    })
-}
+
+
+
+
+// let buttonfav = document.getElementsByClassName("addFavBtn")
+// for (let i = 0; i < buttonfav.length; i++) {
+//     let id = buttonfav[i].value
+//     buttonfav[i].addEventListener("click", function (event) {
+//         // window.location = `http://localhost:/api/movie/${id}`
+
+
+// 
+const resultsLength1 = [...document.getElementsByClassName('results')].length
+// Itero entre los elementos Resultado que hay, para agregarle un eventListener a cada boton, dentro del mismo result. 
+//(Aprovecho el indice del for loop para saber cual es el titulo que tengo que elegir)
+
+for (let i = 0; i < resultsLength1; i++) {
+    //Convierto a array TODOS los titulos del DOM o 'LO QUE VEO EN EL NAVEGADOR = DOM'
+let title2 = [...document.getElementsByClassName("resultsimdbID")].map((elemento) => elemento.id)
+
+//let botondiv = document.getElementById(`detalle${i}`);
+//botondiv.value = results[i].Title
+console.log(title2)
+
+
+document.getElementById(`favoritos${[i]}`).addEventListener("click",function
+ (event) {
+     // COMO CLICKEO EL BOTON DEL MISMO INDICE, SE QUE EL TITULO DE MI ARRAY ES EL QUE TIENE EL MISMO INDICE YA QUE: "Cantidad Botones = Cantidad Titulos" 
+     // Ejemplo: Como hay 20 results, tengo 20 titulos y veinte botones. Por eso el Titulo Uno coincide con el Boton 1 y gracias a eso puedo usar el INDICE del for.
+     console.log("ME CLICKEASTE, RECIBI", title2[i], "TENGO QUE BUSCAR ESTE DETALLE")
+     
+     window.location =`http://localhost:3000/favorites/${title2[i]}`
+})}
+
+
+
+/*************************************************/
+
+const resultsLength3 = [...document.getElementsByClassName('listMovies1')].length
+
+for (let i = 0; i < resultsLength3; i++) {
+let title3 = [...document.getElementsByClassName("resultpeli")].map((elemento) => elemento.id)
+document.getElementById(`delete${[i]}`).addEventListener("click",function
+ (event) {
+     console.log("ME CLICKEASTE, RECIBI", title3[i], "TENGO QUE BUSCAR ESTE DETALLE")
+     window.location =`http://localhost:3000/removeMovie/${title3[i]}`
+})}
+
+
+//trigger para volver al menu del administrador
+document.getElementById(`backToMenu`).addEventListener("click",function
+ (event) {
+     window.location =`http://localhost:3000/movies`
+})
+
+
+

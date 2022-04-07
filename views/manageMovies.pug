@@ -7,7 +7,7 @@ html(lang="en")
         link(rel="stylesheet", href="./css/styles.css")
         title Gestionar Películas
     body#managebody 
-        h1.TituloManage Admin view for create, edit and delete movies
+        h1.TituloManage Manage Movies
         div#createnewMovie
             button(id="createnewMovie1")="Create a new movie"
         div#resultcreate
@@ -27,7 +27,8 @@ html(lang="en")
                     p.manageAdmin Runtime : 
                     p=`${listMovies[index].runtime}`
                     button(id=`editmovie${index}`)="Edit movie"
-                    button(id=`delete${listMovies[index].title}`)="Delete movie"
+                    button(id=`delete${index}`)="Delete movie"
+                div(class="resultpeli", id=`${listMovies[index].title}`) 
         include ./footer.pug
         script(src='/js/main.js')
     //- div(class="results", id=`${listMovies[index].title}`)
