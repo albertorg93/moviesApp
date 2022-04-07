@@ -8,6 +8,35 @@
 // const { connectionString } = require('pg/lib/defaults');
 const pool = require('../utils/postgreSQL')
 
+
+    const createUser = async (newuser,email,pass) => {
+            console.log(newuser)
+            console.log(email)
+            console.log(pass)
+            let result,connection;
+        
+            try{
+              connection =  await pool.connect(); // Espera a abrir conexion
+                const data = await connection.query(`INSERT INTO users(username,password,email,role) 
+                                            VALUES ($1,$2,$3,'member')`
+                                            ,[newuser,pass,email])
+                result = data.rowCount
+            }catch(err){
+                console.log(err);
+                throw err;
+            }finally{
+                connection.end();
+            }
+            return result
+    }
+
+
+
+
+
+
+
+
 const getUsers = async () => {
    
     let result;
@@ -42,7 +71,7 @@ const Insertmovieid = async (req, res,dato) => {
             const inser = await client.query
                 (`INSERT INTO favmovies(user_id,movie_id) VALUES ($1,$2)`
                     , [user1, dato])
-            console.log(inser)
+           
             result = { msg: "Pelicula agregada." }
     } catch (err) {
         console.log(err);
@@ -120,24 +149,7 @@ const selectFavorites = async (req, res) => {
     
 
 
-//   const createUser = async (user) => {
-//         console.log("pues parece que tira")
-//         let result;
-//         const {username, password, email} = user
-//         try{
-//             await client.connect(); // Espera a abrir conexion
-//             const data = await client.query(`INSERT INTO users(username,password,email) 
-//                                         VALUES ($1,$2,$3)`
-//                                         ,[username,password,email])
-//             result = data.rowCount
-//         }catch(err){
-//             console.log(err);
-//             throw err;
-//         }finally{
-//             client.end();
-//         }
-//         return result
-// }
+
 
 // DELETE 
 // //UPDATE
@@ -154,6 +166,7 @@ const selectFavorites = async (req, res) => {
 
 
 const elephant = {
+  createUser,
   getUsers,
   Insertmovieid,
   selectFavorites

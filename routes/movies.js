@@ -41,7 +41,7 @@ router.get('/favorites/:id',movies.addFavorite)
 
 //*********POST */
 // router.post('/login',movies.inicioSesion);
-router.post('/signup',movies.createUser);
+router.post('/signup',users.creaUser);
 //router.post('/login',movies.loginauth);
 router.post('/login',users.loginauth);  //loginauth
 
@@ -53,7 +53,7 @@ router.get('/createMovie',/*authentication ,roleadmin,*/movies.crearMovie);
 router.post('/createMovie',/*authentication ,roleadmin,*/movies.createMovie);
 router.get('/editMovie/:id',/*authentication ,roleadmin,*/movies.editarMovie);
 router.post('/editMovie',movies.editMoviePut);
-router.delete('/removeMovie',/*authentication ,roleadmin,*/movies.deleteMovie);
+router.get('/removeMovie/:id',/*authentication ,roleadmin,*/movies.deleteMovie);
 
 
 module.exports = router;

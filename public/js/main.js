@@ -106,7 +106,6 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
 
 // 
 const resultsLength1 = [...document.getElementsByClassName('results')].length
-console.log(resultsLength1)
 // Itero entre los elementos Resultado que hay, para agregarle un eventListener a cada boton, dentro del mismo result. 
 //(Aprovecho el indice del for loop para saber cual es el titulo que tengo que elegir)
 
@@ -116,7 +115,7 @@ let title2 = [...document.getElementsByClassName("resultsimdbID")].map((elemento
 
 //let botondiv = document.getElementById(`detalle${i}`);
 //botondiv.value = results[i].Title
-
+console.log(title2)
 
 
 document.getElementById(`favoritos${[i]}`).addEventListener("click",function
@@ -127,3 +126,27 @@ document.getElementById(`favoritos${[i]}`).addEventListener("click",function
      
      window.location =`http://localhost:3000/favorites/${title2[i]}`
 })}
+
+
+
+/*************************************************/
+
+const resultsLength3 = [...document.getElementsByClassName('listMovies1')].length
+
+for (let i = 0; i < resultsLength3; i++) {
+let title3 = [...document.getElementsByClassName("resultpeli")].map((elemento) => elemento.id)
+document.getElementById(`delete${[i]}`).addEventListener("click",function
+ (event) {
+     console.log("ME CLICKEASTE, RECIBI", title3[i], "TENGO QUE BUSCAR ESTE DETALLE")
+     window.location =`http://localhost:3000/removeMovie/${title3[i]}`
+})}
+
+
+//trigger para volver al menu del administrador
+document.getElementById(`backToMenu`).addEventListener("click",function
+ (event) {
+     window.location =`http://localhost:3000/movies`
+})
+
+
+

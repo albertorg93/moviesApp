@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken') //importamos Jason Web Token
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
 let pg =  require('pg');
+const { createUser } = require('../models/movies.js');
 let rol = ''
  //clave privada del servidor0
  //guardar la clave en la BBDD  
@@ -25,10 +26,31 @@ app.set('llave', config.llave);
 
 const signup = async (req,res) => {
  
-
+  
     res.status(200).render('signUp'); // Pinta datos en el pug
   
   }
+
+
+  const creaUser = async (req,res) => {
+    const newuser = req.body.username
+    const email = req.body.email
+    const pass = req.body.pass
+    const pass2 = req.body.pass2
+    if (pass == pass2){
+    const response = await user.createUser(newuser,email,pass);
+    res.status(200).render('login');
+    } else {
+      res.json({ mensaje: "Las passwords deben ser iguales"})
+    }
+  //  // console.log(email)
+  //  // console.log(pass)
+  //  // console.log(pass2)
+ 
+     // res.status(200).render('signUp'); // Pinta datos en el pug
+    
+    }
+
   
   const login = async (req,res) => {
     
@@ -40,7 +62,7 @@ const signup = async (req,res) => {
   
   const loginauth = async (req,res) => {
     let result = await user.getUsers()
-    
+     console.log(result)
       const { usuario, contrasena } = req.body;
       //console.log(usuario,contrasena)
   //   console.log(username)
@@ -93,6 +115,7 @@ const signup = async (req,res) => {
 
 const users = {
  signup,
+ creaUser,
  login,
  loginauth,
   logoutUser

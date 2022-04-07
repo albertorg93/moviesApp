@@ -8,14 +8,18 @@ let localPoolConfig = {
     port: process.env.DB_PORT,
     database: process.env.DB_DATABASE,
 };
-const poolConfig = process.env.ELEPHANT_URL
+// let localPoolConfig = {
+//         user: 'postgres',
+//         password: 'bootcamp',
+//         host: 'localhost',
+//         port: 5432,
+//         database: 'postgres',
+//     };
+// const poolConfig = process.env.ELEPHANT_URL ? {
+//           connectionString: process.env.ELEPHANT_URL,
+//           ssl: { rejectUnauthorized: false },
+//       }
+//     : localPoolConfig;
 
-    ? {
-          connectionString: process.env.ELEPHANT_URL,
-          ssl: { rejectUnauthorized: false },
-      }
-    : localPoolConfig;
-const pool = new Pool(poolConfig);
-
-
+const pool = new Pool( localPoolConfig );
 module.exports = pool;

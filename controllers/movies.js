@@ -154,18 +154,12 @@ const getMovies = async (req,res) => {
       
   
   
-         const crearUsuario = async (req,res) => {
-         const email = req.body.email
-         const pass = req.body.pass
-         const pass2 = req.body.pass2
-          // console.log(email)
-          // console.log(pass)
-          // console.log(pass2)
-          const response = await db.createUser(email,pass,pass2);
+      //    const crearUsuario = async (req,res) => {
+         
 
-        res.status(200).send('todo super correcto'); // 
+      //   res.status(200).send('todo super correcto'); // 
       
-      }
+      // }
   
       const adminMovie = async (req,res) => {
 
@@ -174,14 +168,14 @@ const getMovies = async (req,res) => {
       
       }
 
-        const createUser = async (req, res) => {
-            try {
-                let datos = await user.createUser(req.body);
-                res.status(201).json(datos);
-            } catch (error) {
-                console.log(`ERROR: ${error.stack}`);
-            }
-        };
+        // const createUser = async (req, res) => {
+        //     try {
+        //         let datos = await user.createUser(req.body);
+        //         res.status(201).json(datos);
+        //     } catch (error) {
+        //         console.log(`ERROR: ${error.stack}`);
+        //     }
+        // };
 
 
       const crearMovie = async (req,res) => {
@@ -206,26 +200,34 @@ const getMovies = async (req,res) => {
        //funcion necesaria para crear una peli mediante POST
       }
       const editarMovie = async (req,res) => {
-        const editPeli = await creaMov.find({title: req.params.id})  
-        res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
+        const editPeli = await creaMov.find({title: req.params.id}) 
+        console.log(editPeli)
+       // res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       }
 
       const editMoviePut = async (req,res) => {
-        console.log(req.body)
 
+        console.log(req.params.id)
+      //   const editarPeli = await creaMov.find({title: req.params.id}) 
+      //   let change = req.body
+      // console.log(change,"esto es change")
+      // console.log(req.params.id,"esto es params id")
+      
+
+        //const editMovie = await creaMov.find({title: req.params.id, change})  
         //updsteOne MongodB({titlr},req.body)
         //const newProduct = new creaMov(req.body); // {} nuevo producto a guardar
         // Líneas
         //para guardar 
         // en una BBDD SQL o MongoDB
       
-        try{
-        const response = await newProduct.save();
+        // try{
+        // const response = await newProduct.save();
         
-        res.status(201).json({message:`Película ${response.title} guardada en el sistema con ID: ${response.id}`});
-        } catch(err){
-            res.status(400).json({message:err});
-        }
+        // res.status(201).json({message:`Película ${response.title} guardada en el sistema con ID: ${response.id}`});
+        // } catch(err){
+        //     res.status(400).json({message:err});
+        // }
 
        // res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       
@@ -246,6 +248,10 @@ const getMovies = async (req,res) => {
       //}
 
       const deleteMovie = async (req,res) => {
+        console.log(req.params.id)
+        const deletePeli = await creaMov.deleteOne({title: req.params.id})
+        res.status(200).render('eliminapeli');
+        //const editPeli = await creaMov.find({title: req.params.id}) 
         //funcion necesaria para borrar una peli mediante DELETE
     }
 
@@ -270,7 +276,7 @@ const getMovies = async (req,res) => {
     searcher,
     getMovies,
     myMovies,
-    crearUsuario,
+   // crearUsuario,
     adminMovie,
     crearMovie,
     createMovie,
@@ -278,7 +284,7 @@ const getMovies = async (req,res) => {
     //editMovie,
     deleteMovie,
     moviedetail,
-    createUser,
+    //createUser,
     editMoviePut,
     addFavorite
     //moviedetail1
