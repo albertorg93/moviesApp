@@ -1,12 +1,122 @@
+/*#36362E*/
+/*#F7DA39*/
+/*#F7D73A*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  height: 100%;
+}
 body {
-    background-color: #8af7c4ce;
-  }
+    background-color: #2D2D2D;
+    min-height: 100vh;
+    max-width: 400px;
+    margin: 0 auto;
+}
 
-  #formulario{
-    background-color: rgb(204, 248, 160);
-  }
 
+/*================================================================================*/
+/*Header*/
 
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #F7D73A;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Montserrat';
+}
+
+.topnav a.icon {
+  float: right;
+  background-color: slategrey;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/*================================================================================*/
+/*Signup*/
+
+#formulario{
+  background-color: #2D2D2D;
+}
+
+form#form2{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F7D73A;
+}
+button[type=button]{
+  padding:5px 15px;
+  background:#ccc;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color:black;
+}
+
+/*================================================================================*/
+/*Login*/
+
+.botoncrea{
+  min-height: 500px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form#formlogin{
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F7D73A;
+}
+
+div.google{
+  color: #F7D73A;
+  /*border: 2px solid blue;*/
+  border-radius: 3px;
+}
+
+/*================================================================================*/
   /*Pagina de inicio*/
   #startbody{
     background-color: rgb(253, 235, 212);
@@ -14,14 +124,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
-  .botoncrea{
-    min-height: 500px;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+
 
   #form1{
     border: 1px solid yellow;
@@ -42,11 +145,11 @@ body {
     color: black;
     font-weight: bold;
     text-decoration: underline;
-    
+
   }
 
   #creapeli{
-    background-color: rgb(246, 150, 150);
+    background-color: #2D2D2D;
   }
 
   #formcrea{
@@ -77,45 +180,92 @@ body {
     align-items: center;
   }
 
+/*================================================================================*/
+/*Dashboard*/
 
+.btn {
+  padding:5px 15px;
+  background:#ccc;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color:black;
+}
 
-   /*pug pagina de busqueda de pelis(searcher)*/
+/*.btn:hover{*/
+/*  border: 3px solid blue;*/
+/*}*/
+section.dashboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7D73A;
+
+}
+
+/*================================================================================*/
+   /* pug pagina de busqueda de pelis(searcher)*/
    #bodysearcher{
-     background-color: darksalmon;
+     background-color: #2D2D2D;
    }
-   
+
    .searchh1{
      text-align: center;
+     color: #F7DA39;
    }
 
    #labelsearch{
-     font-size: 40px;
+     font-size: 20px;
   }
-
+  form#form12{
+  margin:auto;
+  }
    #form12{
+     background-color: #F7D73A;
      margin-top: 30%;
      display: flex;
      flex-direction: column;
      align-items: center;
+     max-width: 75%;
    }
 
    #form12 input{
      margin-top: 40px;
+
    }
 
+/*==================================================================*/
+input[type=submit] {
+  padding:5px 15px;
+  background:#ccc;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color:black;
+}
+button.addFavBtn,button.detail {
+  padding:5px 15px;
+  background:#ccc;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color:black;
+}
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*==================================================================*/
    #form2{
+    background-color: yellow;
     margin-top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
    }
 
-   #formlogin{
-    margin-top: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   }
+
 
    .botoncrea3 h1{
      text-align: center;
@@ -128,9 +278,21 @@ body {
     align-items: center;
    }
 
+/*================================================================================*/
+/*pelidetallada */
+
+/*button#favoritos{*/
+/*  padding:5px 15px;*/
+/*  background:#ccc;*/
+/*  cursor:pointer;*/
+/*  -webkit-border-radius: 5px;*/
+/*  border-radius: 5px;*/
+/*  border-color:black;*/
+/*}*/
+/*================================================================================*/
   /*Busqueda de peliculas(varios resultados)*/
   #resultadospelis{
-    background-color: springgreen;
+    background-color: #2D2D2D;
   }
   #result{
     display: flex;
@@ -139,19 +301,21 @@ body {
     text-align: center;
   }
   .results{
+    background-color: #F7D73A;
     border: 1px solid black;
     border-radius: 5px;
     margin: 5px;
     max-width: 75%;
   }
+
   .filmsimgres{
     max-width: 85%;
   }
 
-
-  /*Apartado Menu Administrador(crear,editar peliculas)*/
+/*================================================================================*/
+  /*Apartado Menu Administrador(crear,editar,eliminar peliculas)*/
   #managebody{
-    background-color: rgb(242, 173, 124);
+    background-color: #9b9b9b;
   }
 
   #createnewMovie{
@@ -185,10 +349,25 @@ body {
     max-height: 50%;
   }
 
+  #deletepeli{
+    background-color: #9b9b9b;
+    text-align: center;
+    margin-top: 20%;
+  }
 
+  .deletepelis button{
+    margin-top: 20%;
+    font-size: 20px;
+    margin-bottom: 10%;
+  }
+
+#backToMenu{
+  border-radius: 2px;
+}
+/*================================================================================*/
   /*PAGINA EDITAR PELICULAS*/
    #editbody{
-     background-color: rgb(242, 175, 175);
+     background-color: #2D2D2D;
    }
 
   .listMovies2{
@@ -207,26 +386,27 @@ p.edit{
   text-decoration: underline;
 }
 
+/*================================================================================*/
    /*Otras paginas*/
   .boton{
     display: flex;
     justify-content: end;
   }
- 
+
   .login,.signup{
     text-align: right;
     border: 4px solid rgb(0, 0, 0);
     border-radius: 6px;
-    background-color: rgb(206, 206, 206);
-  } 
+    background-color: #2D2D2D;
+  }
 
-   .google h1{
-     border: 2px solid blue;
-     border-radius: 3px;
-   }
+
 
    #search{
-     background-color: aqua;
+     background-color: #424545;
+   }
+   article.filmsa1{
+     background-color: #F7D73A;
    }
 
 
@@ -247,7 +427,7 @@ p.edit{
     border-radius: 10px;
     margin: 15px 5px;
   } */
-/*   
+/*
   .home__section {
     display: flex;
     justify-content: center;
@@ -358,14 +538,14 @@ p.edit{
     border-radius: 5px;
     height: 300px;
   }
-  
+
   .films__a1 {
     margin: 10px;
   }
   .films__a2 {
     display: flex;
     justify-content: center;
-  
+
     flex-flow: column;
     margin: 10px;
   }

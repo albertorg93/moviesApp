@@ -104,6 +104,16 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
 
 
 
+
+
+
+// let buttonfav = document.getElementsByClassName("addFavBtn")
+// for (let i = 0; i < buttonfav.length; i++) {
+//     let id = buttonfav[i].value
+//     buttonfav[i].addEventListener("click", function (event) {
+//         // window.location = `http://localhost:/api/movie/${id}`
+
+
 // 
 const resultsLength1 = [...document.getElementsByClassName('results')].length
 // Itero entre los elementos Resultado que hay, para agregarle un eventListener a cada boton, dentro del mismo result. 
