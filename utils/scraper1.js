@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const scraperByMovie = async (title) => {
+    console.log("hola",title)
     let movieUrl = `https://www.sensacine.com/buscar/?q=${title}`
     let browser = await puppeteer.launch({ headless: true });
     let page = await browser.newPage();
@@ -18,7 +19,8 @@ const scraperByMovie = async (title) => {
     console.log("Estos son los enlaces", links);
     const match = links.filter(element => element.includes('criticas-espectadores'));
     console.log("Estos son los enlaces", match);
-    enlaces = []
+    enlaces = [],
+    busqueda=[]
     for (let enlace of match) {
         await page.goto(enlace);
         //await page.waitFor(3000)
@@ -31,11 +33,17 @@ const scraperByMovie = async (title) => {
             tmp.innerTextOfReview2 = document.querySelectorAll("div.review-card-review-holder > div.content-txt.review-card-content")[1].textContent
             return tmp
         })
-        enlaces.push(dataend)
+        busqueda.push(dataend)
+        for (let index = 0; index < busqueda.length; index++) {
+            if (busqueda[index].title=title){
+                console.log("hola roberto",title);
+                enlaces.push(busqueda[index])
+            }
+       console.log("estos son los enlances",enlaces);
     }
-    console.log(enlaces);
     return enlaces;
     await browser.close();
+}
 }
 //Scraperbymovie();
 const ScraperTools = {

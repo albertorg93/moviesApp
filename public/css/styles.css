@@ -91,7 +91,6 @@ button[type=button]{
 
 .botoncrea{
   min-height: 500px;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,7 +118,7 @@ div.google{
 /*================================================================================*/
   /*Pagina de inicio*/
   #startbody{
-    background-color: rgb(253, 235, 212);
+    background-color: rgb(247, 214, 170);
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
@@ -127,7 +126,7 @@ div.google{
 
 
   #form1{
-    border: 1px solid yellow;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -276,19 +275,28 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
    }
 
 /*================================================================================*/
-/*pelidetallada */
+  #pelidetallada{
+  
+   padding:5px 15px;
+   background:#ccc;
+   cursor:pointer;
+   webkit-border-radius: 5px;
+   border-radius: 5px;
+   border-color:black;
+}
 
-/*button#favoritos{*/
-/*  padding:5px 15px;*/
-/*  background:#ccc;*/
-/*  cursor:pointer;*/
-/*  -webkit-border-radius: 5px;*/
-/*  border-radius: 5px;*/
-/*  border-color:black;*/
-/*}*/
+.results1detalle p{
+  text-align: left;
+}
+
+.results1 img{
+  text-align: center;
+}
+
 /*================================================================================*/
   /*Busqueda de peliculas(varios resultados)*/
   #resultadospelis{
@@ -315,7 +323,11 @@ p{
 /*================================================================================*/
   /*Apartado Menu Administrador(crear,editar,eliminar peliculas)*/
   #managebody{
-    background-color: #9b9b9b;
+    background-color: #858383;
+  }
+
+  #creapeli{
+    background-color: #858383;
   }
 
   #createnewMovie{
@@ -367,7 +379,7 @@ p{
 /*================================================================================*/
   /*PAGINA EDITAR PELICULAS*/
    #editbody{
-     background-color: #2D2D2D;
+     background-color: #868686;
    }
 
   .listMovies2{

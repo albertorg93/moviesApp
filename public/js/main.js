@@ -81,13 +81,13 @@ document.getElementById('createnewMovie1').addEventListener("click", function() 
 }
 
 
+
+
 // document.getElementById(`editmovie`).addEventListener("click", function() {
 //      console.log(listMovies.length)
 //     console.log("hola desde editar")
 //     // window.location =`http://localhost:3000/createMovie`
 // })
-
-
 
 const editsMovieLength = [...document.getElementsByClassName('listMovies1')].length
 
