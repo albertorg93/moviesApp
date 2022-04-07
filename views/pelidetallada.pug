@@ -4,8 +4,9 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-  body
+    link(rel="stylesheet", href="/css/styles.css")
+    title Detalle de película
+  body#pelidetallada
     div#result1
       article.filmsa1
         div(class="results1", id=`${results1.pelicula.Title}`)
@@ -25,12 +26,13 @@ html(lang="en")
           p.year #{results1.pelicula.Actors}
           p Rating :
           p.Type #{results1.pelicula.imdbRating}
-          each value, index in results1.comentarios
-            p.title=`${results1.comentarios[index].titulo}`
-            p.title=`${results1.comentarios[index].innerUserOfReview}`
-            p.title=`${results1.comentarios[index].innerTextOfReview}`
-            p.title=`${results1.comentarios[index].innerUserOfReview2}`
-            p.title=`${results1.comentarios[index].innerTextOfReview2}`
+          div(class="results1detalle")
+            each value, index in results1.comentarios
+                p.title=`${results1.comentarios[index].titulo}`
+                p.title=`${results1.comentarios[index].innerUserOfReview}`
+                p.title=`${results1.comentarios[index].innerTextOfReview}`
+                p.title=`${results1.comentarios[index].innerUserOfReview2}`
+                p.title=`${results1.comentarios[index].innerTextOfReview2}`
           button(class="favoritos",id=`${results1.pelicula.Title}`)="agregar favoritos"
     include ./footer.pug
     script(src='/js/main.js')

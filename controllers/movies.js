@@ -201,19 +201,20 @@ const getMovies = async (req,res) => {
       }
       const editarMovie = async (req,res) => {
         const editPeli = await creaMov.find({title: req.params.id}) 
-        console.log(editPeli)
-       // res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
+       
+        res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       }
 
       const editMoviePut = async (req,res) => {
 
-        console.log(req.params.id)
-      //   const editarPeli = await creaMov.find({title: req.params.id}) 
-      //   let change = req.body
-      // console.log(change,"esto es change")
-      // console.log(req.params.id,"esto es params id")
-      
-
+       
+         const editarPeli = await creaMov.find({title: req.params.id}) 
+         let change = req.body
+      console.log(change,"esto es change")
+      console.log(change.title,"esto es el title")
+         
+      let editedMovie = await creaMov.findOneAndUpdate({title: change.title, change});
+      res.status(200).render('editapeli', {editedMovie})
         //const editMovie = await creaMov.find({title: req.params.id, change})  
         //updsteOne MongodB({titlr},req.body)
         //const newProduct = new creaMov(req.body); // {} nuevo producto a guardar

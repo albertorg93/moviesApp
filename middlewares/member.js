@@ -2,6 +2,7 @@ function member(req,res,next){
     let value=req.headers.cookie
     let valor = value.split(';').map(c=>c.split('=')) 
     let rol = valor[1][1]
+    console.log(rol,"este es el rol desde la vista de member")
     if(rol=="member"){
       next()
     } else {
