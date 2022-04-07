@@ -76,7 +76,7 @@ const signup = async (req,res) => {
               check:  true,
           };
           const token = jwt.sign(payload, app.get('llave'), {
-              expiresIn: "60000ms"
+              expiresIn: "600000ms"
           });
   
       //esto va comentado******
