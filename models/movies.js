@@ -86,6 +86,8 @@ const Insertmovieid = async (req, res,dato) => {
 
 
 const selectFavorites = async (req, res) => {
+ 
+
     let value=req.headers.cookie
       let valor = value.split(';').map(c=>c.split('=')) 
       let user1 = valor[2][1]
@@ -108,6 +110,7 @@ const selectFavorites = async (req, res) => {
         client.release();
     }
      return result
+
 }
 
 // const pool = new Pool({
@@ -117,24 +120,24 @@ const selectFavorites = async (req, res) => {
 //     password: process.env.PG_PASSWORD,
 //   })
 
-const createUser = async (user) => {
-        console.log(user)
-        let result, client;
-        const {username, password, email} = user
-        try{
-            client = await pool.connect(); // Espera a abrir conexion
-            const data = await pool.query(`INSERT INTO users(username,password,email) 
-                                        VALUES ($1,$2,$3)`
-                                        ,[username,password,email])
-            result = data.rowCount
-        }catch(err){
-            console.log(err);
-            throw err;
-        }finally{
-            client.release();
-        }
-        return result
-}
+// const createUser = async (user) => {
+//         console.log(user)
+//         let result, client;
+//         const {username, password, email} = user
+//         try{
+//             client = await pool.connect(); // Espera a abrir conexion
+//             const data = await pool.query(`INSERT INTO users(username,password,email) 
+//                                         VALUES ($1,$2,$3)`
+//                                         ,[username,password,email])
+//             result = data.rowCount
+//         }catch(err){
+//             console.log(err);
+//             throw err;
+//         }finally{
+//             client.release();
+//         }
+//         return result
+// }
 
 //
 //================

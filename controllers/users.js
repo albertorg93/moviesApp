@@ -62,7 +62,7 @@ const signup = async (req,res) => {
   
   const loginauth = async (req,res) => {
     let result = await user.getUsers()
-     console.log(result)
+     
       const { usuario, contrasena } = req.body;
       //console.log(usuario,contrasena)
   //   console.log(username)
@@ -87,17 +87,14 @@ const signup = async (req,res) => {
       //************** */
          res
          .cookie('access_token', token, {
-          httpOnly: true,
+          //httpOnly: true,
         })
         .cookie('rol',user1.role)
         .cookie('id',user1.id_user)
-        .status(200)
-        .json({mensaje: "autenticacion correcta"})
+        .status(200).json({mensaje: "autenticacion correcta"})
         
-      } else {
-          res.json({ mensaje: "Usuario o contraseña incorrectos"})
       }  
- 
+      // res.json({ mensaje: "Usuario o contraseña incorrectos"})
    }
   
    //funcion para deslogar al usuario. eliminar las cookies y redirige a la pantalla

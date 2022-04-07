@@ -313,9 +313,9 @@ p{
   }
 
 /*================================================================================*/
-  /*Apartado Menu Administrador(crear,editar peliculas)*/
+  /*Apartado Menu Administrador(crear,editar,eliminar peliculas)*/
   #managebody{
-    background-color: #2D2D2D;
+    background-color: #9b9b9b;
   }
 
   #createnewMovie{
@@ -349,6 +349,21 @@ p{
     max-height: 50%;
   }
 
+  #deletepeli{
+    background-color: #9b9b9b;
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .deletepelis button{
+    margin-top: 20%;
+    font-size: 20px;
+    margin-bottom: 10%;
+  }
+
+#backToMenu{
+  border-radius: 2px;
+}
 /*================================================================================*/
   /*PAGINA EDITAR PELICULAS*/
    #editbody{

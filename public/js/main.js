@@ -102,11 +102,16 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
       window.location =`http://localhost:3000/editMovie/${titles1[i]}`
 })}
 
-let buttonfav = document.getElementsByClassName("addFavBtn")
-for (let i = 0; i < buttonfav.length; i++) {
-    let id = buttonfav[i].value
-    buttonfav[i].addEventListener("click", function (event) {
-        // window.location = `http://localhost:/api/movie/${id}`
+
+
+
+
+
+// let buttonfav = document.getElementsByClassName("addFavBtn")
+// for (let i = 0; i < buttonfav.length; i++) {
+//     let id = buttonfav[i].value
+//     buttonfav[i].addEventListener("click", function (event) {
+//         // window.location = `http://localhost:/api/movie/${id}`
 
 
 // 
