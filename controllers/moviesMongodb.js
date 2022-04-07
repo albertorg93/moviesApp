@@ -1,6 +1,8 @@
 const paraNada = require('../utils/dbMongo')
 
-const Product = require("../models/moviesMongodb")
+const Product = require("../models/moviesMongodb");
+const req = require('express/lib/request');
+const res = require('express/lib/response');
 
 
 const getProduct = async (req,res) => {
@@ -24,6 +26,17 @@ const createProduct = async (req,res) => {
 
     res.status(201).json({message: `Producto ${answer.title} guardado en el sistema con ID: ${answer.id}`});
 }
+
+// let data
+// try{
+    
+//         const product=await Product.find({'id':req.params.id});
+//         res.status(200).json(product);
+//     }
+//     catch(err){
+//       res.status(400).json({message:err}) ; 
+//     }
+
 
 //const editProduct = ...
 //const deleteProduct = ...

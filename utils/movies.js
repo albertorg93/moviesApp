@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const Product = require("../models/moviesMongodb");
 //resultstitle=[]
 require('dotenv').config();
 const apikey=process.env.API_KEY;
@@ -11,14 +12,25 @@ const getMovieByTitle = async (title) => {
       
        let response = await fetch(`https://www.omdbapi.com/?s=${title}&apikey=${apikey}`); //{}
        let titulo = await response.json();
-       let results = titulo.Search; //{}
-      //  let response1 = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=8b15a7f2`); //{}
-      //  let results2 = await response1.json(); //{}
-      //  const results = {...results1, ...results2 }
+       if(titulo.Response==="False"){
+          const moviesmongo= await Product.find({title}).exec()
+          const moviesconvert=moviesmongo.map((movie)=>{
+            return {
+              
+              Type:movie.genre,
+              imdbID:movie._id,
+              Title:movie.title,
+              Year:movie.year,
+              Poster:movie.image
+              
+            }
+          })
+          //console.log(moviesmongo);
 
-       //resultstitle.push(results)
-      //console.log(results)
-      // res.render('movie.pug', {films: title})
+         return moviesconvert
+       }
+       let results = titulo.Search;
+      
 
        return results;
      }

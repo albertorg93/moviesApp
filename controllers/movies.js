@@ -210,6 +210,7 @@ const getMovies = async (req,res) => {
         res.status(200).render('editapeli', {editPeli}); // Pinta la pagina para editar peliculas en modo administrador
       
       }
+      
 
         //funcion necesaria para editar una peli mediante PUT
       // const editMovie = async (req,res) => {
