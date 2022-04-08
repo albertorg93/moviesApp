@@ -87,6 +87,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [HTML](https://html.spec.whatwg.org/multipage/)
 * [CSS](https://www.w3.org/Style/CSS/)
 * [Cypress](https://www.cypress.io)
+* [Puppeteer](https://pptr.dev)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
