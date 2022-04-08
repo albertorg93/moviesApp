@@ -90,11 +90,13 @@ button[type=button]{
 /*Login*/
 
 .botoncrea{
+  margin-top: 40%;
   min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #F7D73A;
 }
 
 form#formlogin{
@@ -117,13 +119,37 @@ div.google{
 
 /*================================================================================*/
   /*Pagina de inicio*/
-  #startbody{
+  /* #startbody{
     background-color: rgb(247, 214, 170);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  } */
+
+  #startbody{
+    background-color: #666666;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 
+  form#form1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50%;
+
+  }
+
+  #form1 button{
+    margin-top: 10px;
+    min-width: 25%;
+    min-height: 25%;
+  }
+
+
+
+/* 
 
   #form1{
    
@@ -132,13 +158,13 @@ div.google{
     justify-content: center;
     align-items: center;
     min-height: 50%;
-  }
+  } */
 
-  #form1 button{
+  /* #form1 button{
     margin-top: 10px;
     min-width: 25%;
     min-height: 25%;
-  }
+  } */
 
   #form1 h1, #form2 h1{
     color: black;
@@ -195,12 +221,26 @@ div.google{
 /*  border: 3px solid blue;*/
 /*}*/
 section.dashboard{
+  margin-top: 20%;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #F7D73A;
+  border-radius: 2px;
 
+}
+
+.btn{
+  text-align: center;
+  min-width: 150px;
+  padding:5px 15px;
+  background:rgb(190, 190, 190);
+  cursor:pointer;
+  border-radius: 5px;
+  border-color:black;
+  border: 1px solid black;
 }
 
 /*================================================================================*/
@@ -217,22 +257,31 @@ section.dashboard{
    #labelsearch{
      font-size: 20px;
   }
-  form#form12{
+  /* form#form12{
   margin:auto;
-  }
+  } */
    #form12{
+     margin-left: 12%;
      background-color: #F7D73A;
      margin-top: 30%;
+     min-height: 300px;
      display: flex;
      flex-direction: column;
      align-items: center;
      max-width: 75%;
+     border-radius: 4px;
    }
 
    #form12 input{
      margin-top: 40px;
+     border: 2px solid black;
+     border-radius: 2px;
 
    }
+  #logoutapp{
+    margin-top: 10px;
+  }
+
 
 /*==================================================================*/
 input[type=submit] {
@@ -276,6 +325,12 @@ p{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
+   }
+
+   #formcrea15 h3{
+     font-size: 20px;
+     margin-bottom: 20px;
    }
 
 /*================================================================================*/
@@ -310,10 +365,22 @@ p{
   .results{
     background-color: #F7D73A;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 7px;
     margin: 5px;
     max-width: 75%;
   }
+
+  .results button{
+    padding:5px 15px;
+  background:#ccc;
+  border-radius: 5px;
+  border-color:black;
+  border: 2px solid black;
+  }
+  .results p{
+    font-size: 17px;
+  }
+
 
   .filmsimgres{
     max-width: 85%;
@@ -383,6 +450,10 @@ p{
      background-color: #868686;
    }
 
+   #editbody h1{
+     text-align: center;
+   }
+
   .listMovies2{
     display: flex;
     flex-direction: column;
@@ -415,9 +486,9 @@ p.edit{
 
 
 
-   #search{
+   /* #search{
      background-color: #424545;
-   }
+   } */
    article.filmsa1{
      background-color: #F7D73A;
    }

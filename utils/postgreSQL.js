@@ -8,6 +8,7 @@ let localPoolConfig = {
     port: process.env.DB_PORT,
     database: process.env.DB_DATABASE,
 };
+
 // let localPoolConfig = {
 //         user: 'postgres',
 //         password: 'bootcamp',
@@ -15,6 +16,8 @@ let localPoolConfig = {
 //         port: 5432,
 //         database: 'postgres',
 //     };
+
+
 // const poolConfig = process.env.ELEPHANT_URL ? {
 //           connectionString: process.env.ELEPHANT_URL,
 //           ssl: { rejectUnauthorized: false },
