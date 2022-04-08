@@ -1,7 +1,5 @@
 # moviesApp
-Se trata de una aplicacion de películas.
-Como miembro de la aplicación, podremos buscar películas y acceder a información detallada de cada película, así como a las opiniones sobre cada película,de los usuarios de diversas plataformas. También podremos añadir las películas a nuestra lista de favoritos, y ver una lista detallada de dichos favoritos.
-Por el lado del administrador, podremos gestionar una base de datos de películas en local, basada en Atlas MongoDb, pudiendo crear películas nuevas, editarlas y borrarlas. Dichas películas aparecerán tambien en el buscador de películas de los miembros.
+This is a movie app. As a member of the application, you can search for films and access detailed information about each film, as well as opinions about each film from users on various platforms. We can also add films to our favourites list, and view a detailed list of these favourites. On the administrator side, we will be able to manage a local database of movies, based on Atlas MongoDb, being able to create new movies, edit them and delete them. These movies will also appear in the members' movie search engine.
 
 
 <div id="top"></div>
@@ -81,14 +79,13 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Node.js](https://nodejs.org/es/)
+* [Express.js](https://expressjs.com)
+* [PostgreSQL](https://www.postgresql.org/docs/current/plpgsql.html)
+* [MongoDB](https://www.mongodb.com)
+* [HTML](https://html.spec.whatwg.org/multipage/)
+* [CSS](https://www.w3.org/Style/CSS/)
+* [Cypress](https://www.cypress.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
