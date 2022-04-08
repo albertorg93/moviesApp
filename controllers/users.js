@@ -35,7 +35,7 @@ const signup = async (req,res) => {
   const creaUser = async (req,res) => {
     const newuser = req.body.username
     const email = req.body.email
-    const pass = req.body.pass
+    const pass = req.body.password
     const pass2 = req.body.pass2
     if (pass == pass2){
     const response = await user.createUser(newuser,email,pass);
@@ -85,14 +85,23 @@ const signup = async (req,res) => {
           //   	token: token
           // });
       //************** */
+         if(user1.role == 'member'){
+          res
+          .cookie('access_token', token, {
+           //httpOnly: true,
+         })
+         .cookie('rol',user1.role)
+         .cookie('id',user1.id_user)
+         .redirect('http://localhost:3000/dashboard')
+        } else  {
          res
          .cookie('access_token', token, {
           //httpOnly: true,
         })
         .cookie('rol',user1.role)
         .cookie('id',user1.id_user)
-        .status(200).json({mensaje: "autenticacion correcta"})
-        
+        .redirect('http://localhost:3000/movies')
+      }
       }  
       // res.json({ mensaje: "Usuario o contraseña incorrectos"})
    }
