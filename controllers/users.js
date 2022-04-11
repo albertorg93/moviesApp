@@ -25,17 +25,16 @@ app.set('llave', config.llave);
 
 
 const signup = async (req,res) => {
- 
-  
+
     res.status(200).render('signUp'); // Pinta datos en el pug
   
-  }
+}
 
 
   const creaUser = async (req,res) => {
     const newuser = req.body.username
     const email = req.body.email
-    const pass = req.body.pass
+    const pass = req.body.password
     const pass2 = req.body.pass2
     if (pass == pass2){
     const response = await user.createUser(newuser,email,pass);
@@ -43,11 +42,6 @@ const signup = async (req,res) => {
     } else {
       res.json({ mensaje: "Las passwords deben ser iguales"})
     }
-  //  // console.log(email)
-  //  // console.log(pass)
-  //  // console.log(pass2)
- 
-     // res.status(200).render('signUp'); // Pinta datos en el pug
     
     }
 
@@ -61,15 +55,10 @@ const signup = async (req,res) => {
   }
   
   const loginauth = async (req,res) => {
-    let result = await user.getUsers()
-     
+      let result = await user.getUsers()   
       const { usuario, contrasena } = req.body;
-      //console.log(usuario,contrasena)
-  //   console.log(username)
       const user1 = result.find(u => { return u.username === usuario && u.password === contrasena && ( u.role == 'member' || u.role == 'admin')});
-    //   console.log(user1.role)
-    // document.cookie ="username=alberto"
-    // if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+  
   
       if(user1) {
           const payload = {
@@ -85,16 +74,25 @@ const signup = async (req,res) => {
           //   	token: token
           // });
       //************** */
+         if(user1.role == 'member'){
+          res
+          .cookie('access_token', token, {
+           //httpOnly: true,
+         })
+         .cookie('rol',user1.role)
+         .cookie('id',user1.id_user)
+         .redirect('http://localhost:3000/dashboard')
+        } else  {
          res
          .cookie('access_token', token, {
           //httpOnly: true,
         })
         .cookie('rol',user1.role)
         .cookie('id',user1.id_user)
-        .status(200).json({mensaje: "autenticacion correcta"})
-        
+        .redirect('http://localhost:3000/movies')
+      }
       }  
-      // res.json({ mensaje: "Usuario o contraseña incorrectos"})
+
    }
   
    //funcion para deslogar al usuario. eliminar las cookies y redirige a la pantalla
@@ -115,7 +113,7 @@ const users = {
  creaUser,
  login,
  loginauth,
-  logoutUser
+ logoutUser
 }
 
 module.exports = users
