@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/styles.css")
+        title Document
+    body#editbody
+        h1 Edit movie
+            each value in editPeli
+                form#formcrea15(action="/editMovie" method="POST")
+                    h3 Please introduce updated data for the movie
+                    label(for='titulo') Titulo:
+                    input#tituloq(name='title' value=`${editPeli[0].title}`)
+                    label(for='image') Image:
+                    input#image(name='image' value=`${editPeli[0].image}`)
+                    label(for='year') Year:
+                    input#pass(type='year' name='year' value=`${editPeli[0].year}`)
+                    label(for='director') Director:
+                    input#director(name='director' value=`${editPeli[0].director}`)
+                    label(for='genre') Genre:
+                    input#genre(name='genre' value=`${editPeli[0].genre}`)
+                    label(for='runtime') Runtime:
+                    input#runtime(name='runtime' value=`${editPeli[0].runtime}`)
+                    input#enviarCreaPeli(type='submit' value='Edit movie')
+        include ./footer.pug 
+        script(src='/js/main.js')

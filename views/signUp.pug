@@ -7,25 +7,16 @@ html(lang="en")
         link(rel="stylesheet", href="./css/styles.css")
         title Document
     body#formulario
-        div.boton 
-            button(type='button' id='search' onclick='gotoLogin()') ir a Login
         form#form2(action='/signup' method='POST')
             h1 Movie App
+            label(for='user') User:
+            input#user(type='user' name='username' autocomplete="off" placeholder='Introduce tu nombre..')
             label(for='email') Email:
-            br
-            input#email(name='email' placeholder='Introduce tu email...')
-            br
+            input#email(type='email' name='email' autocomplete="off" placeholder='Introduce tu email...')
             label(for='pass') Password:
-            br
-            input#pass(type='password1' name='pass' placeholder='Introduce   password...')
-            br
+            input#pass(type='password' name='password' placeholder='Introduce password...')
             label(for='pass2') Confirmar password:
-            br
-            input#pass2(type='password2' name='pass2' placeholder='Repite    password...')
-            br
-            br
+            input#pass2(type='password' name='pass2' placeholder='Repite password...')
             input#enviarForm1(type='submit' value='Enviar')
-            br
-        div.boton      
-            h1.signup Sign Up
+            button(type='button' id='search' onclick='gotoLogin()') Login
         script(src="./js/main.js") 

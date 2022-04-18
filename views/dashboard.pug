@@ -6,6 +6,9 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="./css/styles.css")
         title Document
-    body 
-        h1 Buscar una peli
-        h1 Mis pelis
+    body
+        include ./header.pug
+        section.dashboard
+            a.btn(href="/search") Buscar una pelicula
+            a.btn(href="/mymovies") Mis películas
+        include ./footer.pug 

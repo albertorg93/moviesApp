@@ -6,5 +6,22 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="./css/styles.css")
         title Document
-    body 
-        h1 Mis pelis favoritas
+    body.bodymymovies 
+        h1.h1mymovies Mis pelis favoritas
+        div#result
+            each value, index in datos
+                div(class="results", id=`${datos[index].Title}`)
+                    p Title:
+                    p.title=`${datos[index].Title}`
+                    img.filmsimgres(src=`${datos[index].Poster}`, alt="movie.img")
+                    p Year:
+                    p.year= `${datos[index].Year}`
+                    p Type : 
+                    p.Type=`${datos[index].Type}`
+                    p imdbId : 
+                    p.imdbId= `${datos[index].imdbID}`
+                    button(id=`detalle${index}`)="detallepelicula"
+                    button(id=`favoritos${index}`)="favoritos"
+                    div(class="resultsimdbID", id=`${datos[index].imdbID}`) 
+    include ./footer.pug 
+    script(src='/js/main.js')   

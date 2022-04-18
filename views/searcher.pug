@@ -1,13 +1,19 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="./css/styles.css")
-        title Document
-    body 
-        h1 ¡Busca una peli!
-            div.buscar
-                input#buscador(name='buscar' placeholder='Introduce una pelicula...')
-                img(src='./media/search.png' style='width:50px; height:50px')
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="./css/styles.css")
+    title Document
+  body#bodysearcher
+    include ./header
+    h1.searchh1 APP MOVIES:
+    form#form12(action='/Search')
+        label(for='search' id="labelsearch") Buscar:
+        input#search(type='search' name='search',placeholder="Título pelicula")
+        input#enviarform1(type='submit' value='Enviar' )
+        br
+    include ./footer.pug 
+    script(src='/js/main.js')
+

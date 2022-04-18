@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="./css/styles.css")
+        title Document
+    body#creapeli
+        div.creapeli
+            form#formcrea(action="/createMovie" method="POST")
+                h1 Crea una nueva pelicula!
+                h3 Introduce los datos de la pelicula a crear
+                label(for='titulo') Titulo:
+                input#tituloq(name='title' value='')
+                label(for='image') Image:
+                input#image(name='image' value='')
+                label(for='year') Year:
+                input#pass(type='year' name='year' value='')
+                label(for='director') Director:
+                input#director(name='director' value='')
+                label(for='genre') Genre:
+                input#genre(name='genre' value='')
+                label(for='runtime') Runtime:
+                input#runtime(name='runtime' value='')
+                input#enviarCreaPeli(type='submit' value='Create movie')
+        include ./footer.pug 
+            script(src="./js/main.js") 
