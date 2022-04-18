@@ -17,7 +17,7 @@ const app = express() // Inicializa el servidor. App es un bjeto que representa 
 
 
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000;
 // Motor de vistas PUG
 app.set('view engine', 'pug');
 app.set('views', './views');
