@@ -87,7 +87,7 @@ const getMovies = async (req,res) => {
 
 
       const crearMovie = async (req,res) => {
-        res.status(200).render('creaPeli'); // Pinta la pagina para crear peliculas en modo administrador
+        res.status(200).render('creapeli'); // Pinta la pagina para crear peliculas en modo administrador
       
       }
 
