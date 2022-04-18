@@ -22,9 +22,8 @@ const scraperByMovie = async (title) => {
         }
         return links;
     })
-    console.log("Estos son los enlaces", links);
+
     const match = links.filter(element => element.includes('criticas-espectadores'));
-    console.log("Estos son los enlaces", match);
     enlaces = [],
     busqueda=[]
     for (let enlace of match) {
