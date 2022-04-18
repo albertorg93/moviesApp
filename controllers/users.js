@@ -81,7 +81,7 @@ const signup = async (req,res) => {
          })
          .cookie('rol',user1.role)
          .cookie('id',user1.id_user)
-         .redirect('http://localhost:3000/dashboard')
+         .redirect('/dashboard')
         } else  {
          res
          .cookie('access_token', token, {
@@ -89,7 +89,7 @@ const signup = async (req,res) => {
         })
         .cookie('rol',user1.role)
         .cookie('id',user1.id_user)
-        .redirect('http://localhost:3000/movies')
+        .redirect('/movies')
       }
       }  
 

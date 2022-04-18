@@ -2,18 +2,18 @@
 
 
 function gotoSignUp(){
-    window.location ="http://localhost:3000/signup"
+    window.location ="/signup"
 }
 
 function gotoLogin(){
-    window.location ="http://localhost:3000/login"
+    window.location ="/login"
 }
 
 if (document.getElementById("form12")!=null){addEventListener("submit",
  (event) => {
   event.preventDefault();
   const movie = event.target.elements.search.value;
-  window.location =`http://localhost:3000/api/search/${movie}`
+  window.location =`/api/search/${movie}`
  
 })}
 
@@ -39,7 +39,7 @@ document.getElementById(`detalle${i}`).addEventListener("click",function
      // Ejemplo: Como hay 20 results, tengo 20 titulos y veinte botones. Por eso el Titulo Uno coincide con el Boton 1 y gracias a eso puedo usar el INDICE del for.
      console.log("ME CLICKEASTE, RECIBI", titles[i], "TENGO QUE BUSCAR ESTE DETALLE")
      
-     window.location =`http://localhost:3000/api/search/detalle/${titles[i]}`
+     window.location =`/api/search/detalle/${titles[i]}`
 })}
 
 
@@ -47,7 +47,7 @@ document.getElementById(`detalle${i}`).addEventListener("click",function
 let doc = document.getElementById('createnewMovie')
 if(doc){
 document.getElementById('createnewMovie1').addEventListener("click", function() {
-     window.location ='http://localhost:3000/createMovie'
+     window.location ='/createMovie'
 })
 }
 
@@ -63,7 +63,7 @@ document.getElementById(`editmovie${i}`).addEventListener("click",function
  (event) {
      console.log("ME CLICKEASTE, RECIBI", titles1[i], "TENGO QUE BUSCAR ESTE DETALLE")
      
-      window.location =`http://localhost:3000/editMovie/${titles1[i]}`
+      window.location =`/editMovie/${titles1[i]}`
 })}
 
 
@@ -87,7 +87,7 @@ document.getElementById(`favoritos${[i]}`).addEventListener("click",function
      // Ejemplo: Como hay 20 results, tengo 20 titulos y veinte botones. Por eso el Titulo Uno coincide con el Boton 1 y gracias a eso puedo usar el INDICE del for.
      console.log("ME CLICKEASTE, RECIBI", title2[i], "TENGO QUE BUSCAR ESTE DETALLE")
      
-     window.location =`http://localhost:3000/favorites/${title2[i]}`
+     window.location =`/favorites/${title2[i]}`
 })}
 
 
@@ -101,14 +101,14 @@ let title3 = [...document.getElementsByClassName("resultpeli")].map((elemento) =
 document.getElementById(`delete${[i]}`).addEventListener("click",function
  (event) {
      console.log("ME CLICKEASTE, RECIBI", title3[i], "TENGO QUE BUSCAR ESTE DETALLE")
-     window.location =`http://localhost:3000/removeMovie/${title3[i]}`
+     window.location =`/removeMovie/${title3[i]}`
 })}
 
 
 //trigger para volver al menu del administrador
 document.getElementById(`backToMenu`).addEventListener("click",function
  (event) {
-     window.location =`http://localhost:3000/movies`
+     window.location =`/movies`
 })
 
 
