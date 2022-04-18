@@ -67,16 +67,32 @@ body {
 /*Signup*/
 
 #formulario{
+  margin-top: 20%;
   background-color: #2D2D2D;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15%;
+  padding-right: 15%;
+
 }
 
-form#form2{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #F7D73A;
+#form2{
+  min-height: 300px;
+  background-color: #f9d831;
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
 }
+
+#form2 input{
+  margin-top: 4px;
+  border: 2px solid black;
+  border-radius: 3px;
+  min-height: 20px;
+}
+
 button[type=button]{
   padding:5px 15px;
   background:#ccc;
@@ -86,19 +102,35 @@ button[type=button]{
   border-color:black;
 }
 
+input#enviarForm1{
+  margin-top: 5%;
+  border-radius: 3px;
+  min-width: 75px;
+}
+
+#search{
+  margin-top: 2%;
+  min-width: 75px;
+}
+
 /*================================================================================*/
 /*Login*/
 
 .botoncrea{
-  min-height: 500px;
+  margin-top: 30%;
+  min-height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #f5d742;
+  border: 4px solid black;
+  border-radius: 20px;
+
 }
 
 form#formlogin{
-  margin-top: 30%;
+  margin-top: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,6 +139,25 @@ form#formlogin{
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #F7D73A;
+  min-height: 200px;
+  border-radius: 5px;
+}
+
+#formlogin input{
+  border-radius: 2px;
+  border: 2px solid black;
+}
+
+#logearse{
+  margin-top: 5px;
+}
+
+#formlogin h1{
+  color: black;
+}
+
+.botoncrea3 h1{
+  color: #F7D73A;
 }
 
 div.google{
@@ -117,21 +168,28 @@ div.google{
 
 /*================================================================================*/
   /*Pagina de inicio*/
-  #startbody{
+  /* #startbody{
     background-color: rgb(247, 214, 170);
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+  } */
+
+  #startbody{
+    background-color: #464646;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
 
-
-  #form1{
-   
+  form#form1{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50%;
+
   }
 
   #form1 button{
@@ -140,10 +198,29 @@ div.google{
     min-height: 25%;
   }
 
+
+
+/* 
+
+  #form1{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50%;
+  } */
+
+  /* #form1 button{
+    margin-top: 10px;
+    min-width: 25%;
+    min-height: 25%;
+  } */
+
   #form1 h1, #form2 h1{
     color: black;
     font-weight: bold;
-    text-decoration: underline;
+
 
   }
 
@@ -173,11 +250,17 @@ div.google{
 
 
   #resultcreate{
+    /* text-align: center; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
+  #resultcreate div{
+    background-color: #F7D73A;
+  }
+
 
 /*================================================================================*/
 /*Dashboard*/
@@ -195,12 +278,26 @@ div.google{
 /*  border: 3px solid blue;*/
 /*}*/
 section.dashboard{
+  margin-top: 20%;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #F7D73A;
+  border-radius: 2px;
 
+}
+
+.btn{
+  text-align: center;
+  min-width: 150px;
+  padding:5px 15px;
+  background:rgb(190, 190, 190);
+  cursor:pointer;
+  border-radius: 5px;
+  border-color:black;
+  border: 1px solid black;
 }
 
 /*================================================================================*/
@@ -217,22 +314,31 @@ section.dashboard{
    #labelsearch{
      font-size: 20px;
   }
-  form#form12{
+  /* form#form12{
   margin:auto;
-  }
+  } */
    #form12{
+     margin-left: 12%;
      background-color: #F7D73A;
      margin-top: 30%;
+     min-height: 300px;
      display: flex;
      flex-direction: column;
      align-items: center;
      max-width: 75%;
+     border-radius: 4px;
    }
 
    #form12 input{
      margin-top: 40px;
+     border: 2px solid black;
+     border-radius: 2px;
 
    }
+  #logoutapp{
+    margin-top: 10px;
+  }
+
 
 /*==================================================================*/
 input[type=submit] {
@@ -256,13 +362,13 @@ p{
 }
 
 /*==================================================================*/
-   #form2{
+   /* #form2{
     background-color: yellow;
     margin-top: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-   }
+   } */
 
 
 
@@ -276,6 +382,12 @@ p{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-bottom: 10px;
+   }
+
+   #formcrea15 h3{
+     font-size: 20px;
+     margin-bottom: 20px;
    }
 
 /*================================================================================*/
@@ -284,7 +396,6 @@ p{
    padding:5px 15px;
    background:#ccc;
    cursor:pointer;
-   webkit-border-radius: 5px;
    border-radius: 5px;
    border-color:black;
 }
@@ -311,10 +422,23 @@ p{
   .results{
     background-color: #F7D73A;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 7px;
     margin: 5px;
     max-width: 75%;
+    border: 3px solid black;
   }
+
+  .results button{
+    padding:5px 15px;
+  background:#ccc;
+  border-radius: 5px;
+  border-color:black;
+  border: 2px solid black;
+  }
+  .results p{
+    font-size: 17px;
+  }
+
 
   .filmsimgres{
     max-width: 85%;
@@ -323,7 +447,7 @@ p{
 /*================================================================================*/
   /*Apartado Menu Administrador(crear,editar,eliminar peliculas)*/
   #managebody{
-    background-color: #858383;
+    background-color: #a09d9d;
   }
 
   #creapeli{
@@ -347,16 +471,23 @@ p{
   }
 
   .listMovies1{
-    border: 1px solid black;
-    border-radius: 3px;
-    max-width: 40%;
+    border: 3px solid black;
+    border-radius: 5px;
+    max-width: 60%;
     min-height: 20%;
-    margin: 20px;
+    margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .listMovies1 button{
+    border: 2px solid black;
   }
 
   .filmsimg1{
+    /* margin-left: 20%; */
     max-width: 50%;
     max-height: 50%;
   }
@@ -365,6 +496,7 @@ p{
     background-color: #9b9b9b;
     text-align: center;
     margin-top: 20%;
+    border-radius: 2px;
   }
 
   .deletepelis button{
@@ -380,6 +512,10 @@ p{
   /*PAGINA EDITAR PELICULAS*/
    #editbody{
      background-color: #868686;
+   }
+
+   #editbody h1{
+     text-align: center;
    }
 
   .listMovies2{
@@ -400,6 +536,12 @@ p.edit{
 
 /*================================================================================*/
    /*Otras paginas*/
+   .bienvenido{
+     padding-top: 100px;
+     color: #F7D73A;
+     font-size: 40px;
+   }
+
   .boton{
     display: flex;
     justify-content: end;
@@ -412,11 +554,16 @@ p.edit{
     background-color: #2D2D2D;
   }
 
-
-
-   #search{
-     background-color: #424545;
+  /*****************************FAVORITOS*****************************/
+  .bodymymovies{
+    background-color: rgb(57, 57, 57);
+  } 
+  
+  .h1mymovies{
+     text-align: center;
+     color: #F7D73A
    }
+
    article.filmsa1{
      background-color: #F7D73A;
    }
