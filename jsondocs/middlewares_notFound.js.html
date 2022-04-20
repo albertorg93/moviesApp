@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: middlewares/notFound.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,38 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: middlewares/notFound.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @author Pedro Rodríguez &lt;pedromrv>
+ * @exports notFound
+ * @namespace middlewares
+ */
 
+/**
+ * Descripción: Esta función es un middleware dice si hay un 404
+ * @memberof middlewares
+ * @method notFound
+ * @async
+ * @param {Object} req peticion http
+ * @param {Object} res respuesta http
+ * @param {Object} next función de callback para que el middleware termine de manera exitosa
+ */
 
-    <h3> </h3>
+function notFound(req,res,next){
+    res.status(404).json({message: "Ruta inexistente", code: 404});
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = notFound;</code></pre>
+        </article>
+    </section>
 
 
 
