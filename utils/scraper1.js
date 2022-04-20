@@ -2,8 +2,14 @@ const puppeteer = require("puppeteer");
 const scraperByMovie = async (title) => {
     console.log("hola",title)
     let movieUrl = `https://www.sensacine.com/buscar/?q=${title}`
-    let browser = await puppeteer.launch({ headless: true });
+    let browser = await puppeteer.launch({ headless: true, args : [
+        '--no-sandbox',
+        '--disable-setuid-sandbox'
+      ]});
     let page = await browser.newPage();
+   
+
+
     await page.goto(movieUrl)
     // Esto solo para el navegador porque hay cookie, cuando estas en handless true no es necesario.
     //await page.waitForSelector("#didomi-notice-agree-button");
@@ -16,9 +22,8 @@ const scraperByMovie = async (title) => {
         }
         return links;
     })
-    console.log("Estos son los enlaces", links);
+
     const match = links.filter(element => element.includes('criticas-espectadores'));
-    console.log("Estos son los enlaces", match);
     enlaces = [],
     busqueda=[]
     for (let enlace of match) {

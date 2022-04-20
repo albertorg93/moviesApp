@@ -22,8 +22,7 @@ function member(req,res,next){
     if(rol=="member"){
       next()
     } else {
-      // res.status(401).json({mensaje:'you need role member'});
-      res.status(401).render('roleadmin.pug')
+      res.status(401).render('rolemember.pug')
     }
     console.log(rol)
     //

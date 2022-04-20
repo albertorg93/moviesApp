@@ -21,11 +21,10 @@ function admin(req,res,next){
   if(rol=="admin"){
     next()
   } else {
-    // res.status(401).json({mensaje:'you need role admin'});
     res.status(401).render('roleadmin.pug')
   }
   console.log(rol)
-  //
+  
 }
 
 module.exports = admin;

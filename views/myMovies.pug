@@ -5,9 +5,9 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="./css/styles.css")
-        title Películas Favoritas
-    body 
-        h1 Mis pelis favoritas
+        title Document
+    body.bodymymovies 
+        h1.h1mymovies Mis pelis favoritas
         div#result
             each value, index in datos
                 div(class="results", id=`${datos[index].Title}`)

@@ -12,7 +12,7 @@ html(lang="en")
             form#formlogin(action="/login" method="POST")
                 h1 Logueate
                 label(for='usuario') Usuario:
-                input#tituloq(name='usuario' value='')
+                input#tituloq(name='usuario' autocomplete="off" value='')
                 label(for='contrasena') Password:
                 input#image(type='password' name='contrasena' value='')
                 input#logearse(type='submit' value='Log in')
